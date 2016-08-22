@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal|center_vertical">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/custom_out_layout"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content">
+
+        <ImageView android:id="@+id/native_main_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true" />
+
+        <com.core.adnsdk.VideoPlayer
+            android:id="@+id/native_video_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@id/native_main_image"
+            android:layout_centerHorizontal="true" />
+
+        <RelativeLayout
+            android:id="@+id/native_video_title_block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignBottom="@id/native_video_layout"
+            android:background="#af000000"
+            android:minHeight="40dp">
+
+            <ImageView
+                android:id="@+id/native_icon_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop" />
+            <LinearLayout android:id="@+id/native_text_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/native_icon_image"
+                android:minHeight="40dp"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/native_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"
+                    android:layout_weight=".7"/>
+                <TextView
+                    android:id="@+id/native_subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#ffffff"
+                    android:textSize="10dp"
+                    android:layout_weight=".3" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView android:id="@+id/native_cta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"
+            android:gravity="center_horizontal"
+            android:layout_above="@id/native_video_title_block"
+            android:layout_alignRight="@id/native_video_layout"
+            android:background="@drawable/native_video_cta_border"
+            android:textColor="#FFFFFF"/>
+
+        <TextView android:id="@+id/native_count_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_horizontal"
+            android:layout_above="@id/native_video_title_block"
+            android:layout_alignLeft="@id/native_video_layout"
+            android:textColor="#FFFFFF"/>
+
+        <ImageView android:id="@+id/native_loading_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/native_no_card"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

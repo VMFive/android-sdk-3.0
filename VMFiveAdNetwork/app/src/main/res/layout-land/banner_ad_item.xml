@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/custom_out_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView android:id="@+id/native_video_background_image"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_centerVertical="true"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true" />
+
+    <com.core.adnsdk.VideoPlayer
+        android:id="@+id/native_video_player_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true" />
+
+    <ImageView android:id="@+id/native_loading_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:src="@drawable/native_no_banner"/>
+
+</RelativeLayout>

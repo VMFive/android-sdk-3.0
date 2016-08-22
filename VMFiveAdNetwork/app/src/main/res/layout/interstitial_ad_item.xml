@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/custom_out_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView android:id="@+id/native_main_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:background="@drawable/native_interstitial_border"
+        android:cropToPadding="true"
+        android:padding="1dp"
+        android:layout_centerHorizontal="true" />
+
+    <com.core.adnsdk.VideoPlayer
+        android:id="@+id/native_video_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_alignTop="@id/native_main_image"
+        android:layout_centerHorizontal="true" />
+
+    <TextView android:id="@+id/native_cta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/native_main_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="27dp"
+        android:background="@drawable/native_video_cta_border"
+        android:textColor="#FFFFFF" />
+
+    <TextView android:id="@+id/native_count_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/native_video_layout"
+        android:layout_alignBottom="@id/native_video_layout"
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="12dp"
+        android:textColor="#FFFFFF"/>
+</RelativeLayout>
