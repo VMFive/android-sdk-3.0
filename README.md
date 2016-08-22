@@ -121,8 +121,8 @@ Applause SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
             android:hardwareAccelerated="true">
     </activity>
     ```
+    
 ## 廣告格式
-
 #### 卡片型原生影音廣告
 <p align="center">
 <img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Video_Card.png?raw=true" alt="Video_Card" width="216" height="384">
