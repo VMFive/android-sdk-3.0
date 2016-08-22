@@ -188,8 +188,10 @@ import com.core.adnsdk.ErrorMessage;
     * ```activity```：Activity context
     * ```apikey``` : 後台產生的獨特字串,用來請求廣告
     * ```placement```：按照placement命名規則產生的字串
-    * ```adViewType```: 廣告類型,如AdViewType.CARD_VIDEO
+    * ```adCardType```: 廣告類型,如AdCardType.CARD_VIDEO
+    
     **apikey和placement請務必填入正確的值,否則無法載入廣告**
+    
     範例：
     ```java
     final AdCardType adCardType = AdCardType.CARD_VIDEO;
