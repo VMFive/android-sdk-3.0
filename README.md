@@ -82,11 +82,6 @@ Applause SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
             compile 'com.google.android.gms:play-services-ads:8.4.0'
         }
         ```
-* Proguard 
-　  加入以下設定：
-　  -dontwarn java.nio.file.*
-    -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
-    -dontwarn okio.**
 
 #### Eclipse
 ----
