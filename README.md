@@ -82,6 +82,11 @@ Applause SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
             compile 'com.google.android.gms:play-services-ads:8.4.0'
         }
         ```
+* Proguard 
+　  加入以下設定：
+　  -dontwarn java.nio.file.*
+    -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+    -dontwarn okio.**
 
 #### Eclipse
 ----
@@ -89,7 +94,11 @@ Applause SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
 1. [下載最新版 SDK](https://github.com/applauseadn/android-sdk/releases)
 2. 將 SDK 的 JAR 檔拖至 ```libs``` 目錄下
 3. 加入 ```Google Play Service``` 的 ```library project```
-
+4. 設定proguard
+   加入以下設定：
+　  -dontwarn java.nio.file.*
+    -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+    -dontwarn okio.**
 ## 更新 AndroidManifest.xml
 1. 修改 ```AndroidManifest.xml``` 加入必要的權限
 
@@ -121,20 +130,6 @@ Applause SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
             android:hardwareAccelerated="true">
     </activity>
     ```
-
-3. 指定 ```Application``` 入口。如以下的例子：我們指定 ```MyApplication.java``` 作為我們 ```application``` 開始執行的入口
-
-    ```java
-    <application
-        android:name=".MyApplication"
-        android:allowBackup="true"
-        android:hardwareAccelerated="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-    ```
-    > 若開發者請求的廣告有包含影音檔, 該 Activity / Application 需要啟用 hardwareAccelerated, 否則無法觀看影片
-
 ## 廣告格式
 
 #### 卡片型原生影音廣告
