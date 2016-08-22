@@ -311,7 +311,8 @@ import com.core.adnsdk.AdPoolListener;
     **apikey和placement請務必填入正確的值,否則無法載入廣告**
     範例：
     ```java
-    mNativeAdAdapter = new NativeAdAdapter(this, listView, originalAdapter, "5630c874cef2370b13942b8f", "placement(list)");
+    final AdViewType adViewType = AdViewType.CARD_VIDEO;
+    mNativeAdAdapter = new NativeAdAdapter(this, listView, originalAdapter, "5630c874cef2370b13942b8f", "placement(list)", adViewType);
     ```
 
 4. 設定與實作 ```AdPoolListener```， ```AdPoolListener``` 的事件會多帶一個 ```index``` 參數表示插入廣告的位置
