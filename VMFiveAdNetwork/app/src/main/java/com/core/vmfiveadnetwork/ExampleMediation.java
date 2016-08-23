@@ -14,8 +14,8 @@ import android.widget.Button;
 public class ExampleMediation extends FragmentActivity {
     private static final String TAG = "ExampleMediation";
 
-    private static final String ADMOB_BANNER_UNIT_ID = "ca-app-pub-4125394451256992/1741888066";
-    private static final String ADMOB_INTERSTITIAL_UNIT_ID = "ca-app-pub-4125394451256992/4695354464";
+    private static final String ADMOB_BANNER_UNIT_ID = "ca-app-pub-4125394451256992/1459988862";
+    private static final String ADMOB_INTERSTITIAL_UNIT_ID = "ca-app-pub-4125394451256992/2936722064";
 
     private AdView mAdView = null;
     // use InterstitialAdView to avoid memory leaks of AdMob.InterstitialAd
