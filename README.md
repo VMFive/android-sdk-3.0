@@ -157,11 +157,12 @@ import com.core.adnsdk.ErrorMessage;
     * ```public final Builder loadingId(final int loadingId)```：綁定 Loading image 與 UI 元件
     * ```public final Builder titleId(final int titleId)```：綁定標題文字與 UI 元件
     * ```public final Builder subTitleId(final int subTitleId)```：綁定副標題文字與 UI 元件
-    * ```public final Builder descriptionId(final int descriptionId)```：綁定描述文字與 UI 文件
+    * ```public final Builder descriptionId(final int descriptionId)```：綁定描述文字與 UI 元件
     * ```public final Builder videoPlayerId(final int videoPlayerId)```：綁定影片與 Video Player
     * ```public final Builder iconImageId(final int iconImageId)```：綁定圖示與 UI 元件
     * ```public final Builder mainImageId(final int mainImageId)```：綁定圖片與 UI 元件
-    * ```public final Builder callToActionId(final int callToActionId)```：綁定 CTA 文字與 UI 文件
+    * ```public final Builder callToActionId(final int callToActionId)```：綁定 CTA 文字與 UI 元件
+    * ```public final Builder countDownId(final int countDownId)```：綁定倒數計時與 UI 元件
     
     範例：
     ```java
@@ -173,6 +174,7 @@ import com.core.adnsdk.ErrorMessage;
         .videoPlayerId(R.id.native_video_layout) 
         .iconImageId(R.id.native_icon_image)
         .callToActionId(R.id.native_cta) 
+        .countDownId(R.id.native_count_down)
         .build();
     ```
     
@@ -290,6 +292,7 @@ import com.core.adnsdk.AdPoolListener;
         .videoPlayerId(R.id.native_video_layout)
         .iconImageId(R.id.native_icon_image)
         .callToActionId(R.id.native_cta)
+        .countDownId(R.id.native_count_down)
         .build();
     ```
 2. 建立一個 ```CardAdRenderer```，並且將定義好素材與排版關聯的 ```CardViewBinder``` 傳入
@@ -310,7 +313,10 @@ import com.core.adnsdk.AdPoolListener;
     * ```originalAdapter```：要插入原生廣告的 adapter
     * ```apikey``` : 一個用來請求廣告的獨特字串
     * ```placement```：依照placement命名規則產生的字串
+    * ```adViewType```：廣告類型,如AdViewType.CARD_VIDEO
+    
     **apikey和placement請務必填入正確的值,否則無法載入廣告**
+    
     範例：
     ```java
     final AdViewType adViewType = AdViewType.CARD_VIDEO;
@@ -327,7 +333,7 @@ import com.core.adnsdk.AdPoolListener;
         void onAdFinished(int index); //廣告點擊完成跳轉後
         void onAdReleased(int index); //廣告完成卸載並且釋放所有資源
         boolean onAdWatched(int index); //影片播放完畢,要自動載入下一檔廣告請回傳true
-        void onAdImpressed(); //廣告曝光
+        void onAdImpressed(int index); //廣告曝光
     }
     ```
     > 建議使用 AdPoolListenerAdapter, 可以只實作一部份的 event callbacks
@@ -438,6 +444,11 @@ import com.core.adnsdk.AdPoolListener;
 2. 創建 ```AdInterstitial``` 物件，需要傳入四個參數: Context,placement字串,apikey字串以及指定廣告類型為
 
     ```AdInterstitialType.INTERSTITIAL_VIDEO ```
+    
+    * ```activity```：Activity context
+    * ```apikey``` : 一個用來請求廣告的獨特字串
+    * ```placement```：依照placement命名規則產生的字串
+    * ```adInterstitialType```：廣告類型,如AdInterstitialType.INTERSTITIAL_VIDEO
       
     ```java
     mAdInterstitial  = new AdInterstitial(this,
@@ -524,6 +535,12 @@ import com.core.adnsdk.AdPoolListener;
 2. 創建 ```mAdReward``` 物件，需要傳入四個參數: Context, 一個apikey字串 ,一個placement字串以及指定廣告類型為
 
     **AdRewardType.REWARD_VIDEO**
+    
+    * ```activity```：Activity context
+    * ```apikey``` : 一個用來請求廣告的獨特字串
+    * ```placement```：依照placement命名規則產生的字串
+    * ```adRewardType```：廣告類型,如AdRewardType.REWARD_VIDEO
+    
     ```java
    mAdReward = new AdReward(
                     getActivity(),
@@ -563,8 +580,9 @@ import com.core.adnsdk.AdPoolListener;
 
     ```mAdReward.showAd(); ```
   廣告播放結束後會利用
-    ```onAdRewarded(AdReward.RewardInfo rewardInfo)```
+    ```String onAdRewarded(AdReward.RewardInfo rewardInfo)```
   告知 
+  > 使用者可透過 onAdRewarded callback 回傳值, 回傳給其後端相關的訊息
    
 7. 處理獎勵廣告的 Life Cycle，釋放資源
 
