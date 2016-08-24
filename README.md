@@ -393,7 +393,7 @@ import com.core.adnsdk.AdPoolListener;
 
 ###### 完整代碼演示
 ---
-完整的程式碼請參考 [```MainActivity.java Interstitial fragment```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#342)
+完整的程式碼請參考 [```MainActivity.java Interstitial fragment```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#L342)
 
 ###### 載入並且展示廣告
 ---
