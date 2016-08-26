@@ -717,7 +717,7 @@ import com.core.adnsdk.AdPoolListener;
     
 4. 啟用收集用戶手機安裝App資訊
 
-    若開發者同意開啟收集用戶手機安裝App資訊，可以提昇廣告效益，SDK可能會優先投放廣告給開發者，進而提高開發者廣告營收，開發者需要配合SDK，顯示相關訊息讓用戶知道！
+    若開發者同意開啟收集用戶手機安裝App資訊，可以提昇廣告效益，SDK可能會優先投放廣告給開發者，進而提高開發者廣告營收，開發者需要配合SDK，顯示相關訊息讓用戶知道！如[參考代碼: MainActivity.java](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#L135)
     
     ```java
     // need to enable app scan in backend, and prompt this dialog to notice user
