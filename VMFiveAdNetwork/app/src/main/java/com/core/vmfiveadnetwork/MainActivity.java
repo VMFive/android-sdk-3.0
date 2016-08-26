@@ -63,7 +63,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     private static final int MENU_ABOUT = 0;
     private static final int MENU_CLEAR_RESOURCE_CACHE = 1;
     private static final int MENU_CLEAR_CONNECTION_CACHE = 2;
-    private static final int MENU_EXIT = 3;
+    private static final int MENU_CLEAR_PREFERENCES_CACHE = 3;
+    private static final int MENU_EXIT = 4;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
@@ -130,6 +131,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
         // check permissions for M, if some permission denied, it would shut down activity
         checkRequiredPermissions();
+
+        // need to enable app scan in backend, and prompt this dialog to notice user
+        //ADN.showAppScanDialog(this, "是否同意讓我們收集App安裝資訊");
     }
 
     @Override
@@ -138,6 +142,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         menu.add(0, MENU_ABOUT, 0, "About");
         menu.add(0, MENU_CLEAR_RESOURCE_CACHE, 0, "Clear File Cache");
         menu.add(0, MENU_CLEAR_CONNECTION_CACHE, 0, "Clear Connection Cache");
+        menu.add(0, MENU_CLEAR_PREFERENCES_CACHE, 0, "Clear Preferences Cache");
         menu.add(0, MENU_EXIT, 0, "Exit");
         return true;
     }
@@ -164,6 +169,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             case MENU_CLEAR_CONNECTION_CACHE:
                 ADN.clearConnectionCache(this);
                 Toast.makeText(this, "Clear connection caches.", Toast.LENGTH_LONG).show();
+                break;
+            case MENU_CLEAR_PREFERENCES_CACHE:
+                ADN.clearPreferencesCache(this);
+                Toast.makeText(this, "Clear preferences caches.", Toast.LENGTH_LONG).show();
                 break;
             case MENU_EXIT:
                 finish();

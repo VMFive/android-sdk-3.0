@@ -42,7 +42,7 @@ public class ExampleBanner extends FragmentActivity {
         mAdBannerView = new AdBannerView(
                   this
                 , "5630c874cef2370b13942b8f"
-                , "placement(banner_video)" // 57b40b15fc97ff734720c128 // placement(banner_video)
+                , "placement(banner_video)"
                 , adBannerType);
         mAdBannerView.setViewParent(adLayout);
         // if user don't provide renderer, it would use default renderer.

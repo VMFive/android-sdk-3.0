@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.core.adnsdk.AdCardType;
+import com.core.adnsdk.AdCardView;
 import com.core.adnsdk.AdListener;
 import com.core.adnsdk.AdObject;
 import com.core.adnsdk.AdView;
