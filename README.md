@@ -714,3 +714,7 @@ import com.core.adnsdk.AdPoolListener;
     ```
 
     > 在 debug mode, 請使用 ADNSDK debug build, 預設就會印出 log
+    
+4. 啟用收集用戶手機安裝App資訊
+
+    若開發者同意開啟收集用戶手機安裝App資訊，可以提昇廣告效益，SDK可能會優先投放廣告給開發者，進而提高開發者廣告營收，開發者需要配合SDK，顯示相關訊息讓用戶知道！
