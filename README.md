@@ -18,6 +18,8 @@
   - [DFP](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#dfp)
   - [MoPub](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#mopub)
 - [Unity](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#unity)
+  - [串接 Reward](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#串接-reward)
+  - [串接 Card](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#串接-card)
 - [問題排解](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#問題排解)
 
 
