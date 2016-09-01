@@ -673,11 +673,32 @@ import com.core.adnsdk.AdPoolListener;
 #### 串接 Reward
 ----
 <p align="center">
-<img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Unity_Import_Package.png?raw=true" alt="Video_Reward" width="216" height="384">
+<img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Unity_Import_Package.png?raw=true" alt="Video_Reward" width="640" height="400">
 </p>
 
   [VMFiveADN_Reward.unitypackage](https://github.com/applauseadn/android-sdk-3.0/tree/master/VMFiveADN_UnityPackages)
-  請按照圖示載入 Unity package
+  請按照圖示載入 Unity package, 並參考 CallJavaCode.cs 加上載入 AdReward 的代碼
+  
+  ```java
+  private AdReward mAdReward = null;
+
+	void Start() {
+		mAdReward = new AdReward ("5630c874cef2370b13942b8f", "placement(reward_video)");
+		MyAdRewardListener adRewardListener = new MyAdRewardListener (mAdReward);
+		mAdReward.setListener (adRewardListener);
+		mAdReward.setTestMode (true);
+	}
+
+	void OnGUI() {
+		if(GUI.Button(new Rect(20,40,200,200), "showReward")) {
+			mAdReward.load ();
+		}
+	}
+
+	void OnDestroy() {
+		mAdReward.onDestroy ();
+	}
+  ```
   
 #### 串接 Card
 ----
