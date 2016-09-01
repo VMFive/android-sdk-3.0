@@ -670,13 +670,25 @@ import com.core.adnsdk.AdPoolListener;
 
 ## Unity
 
+#### 串接 Reward
+----
 <p align="center">
-<img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Unity_Import_Package.png.png?raw=true" alt="Video_Reward" width="216" height="384">
+<img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Unity_Import_Package.png?raw=true" alt="Video_Reward" width="216" height="384">
 </p>
 
   [VMFiveADN_Reward.unitypackage](https://github.com/applauseadn/android-sdk-3.0/tree/master/VMFiveADN_UnityPackages)
   請按照圖示載入 Unity package
   
+#### 串接 Card
+----
+  串接 Card AdView 範例 [```UnityPlayerActivity```](https://github.com/applauseadn/android-sdk/blob/master/VMFiveUnity/app/src/main/java/com/vmfive/javaunitysample/UnityPlayerActivity.java)
+  
+  ``` java
+  // 需要生成一個擺放 AdView 的 container, 最後透過 addContentView 加載到 UnityPlayer
+  ViewGroup.LayoutParams vlp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+  mUnityPlayer.currentActivity.getWindow().addContentView(mRelativeLayout, vlp);
+  ```
+
 
 ## 問題排解
 1. 影音廣告的影片, 有顯示CoverImage, 但播放影片時為黑屏
