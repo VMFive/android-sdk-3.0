@@ -679,7 +679,7 @@ import com.core.adnsdk.AdPoolListener;
 </p>
 
   [VMFiveADN_Reward.unitypackage](https://github.com/applauseadn/android-sdk-3.0/tree/master/VMFiveADN_UnityPackages)
-  請按照圖示載入 Unity package, 並參考 CallJavaCode.cs 加上載入 AdReward 的代碼
+  請按照圖示載入 Unity package, 並參考 CallJavaCode.cs 加上載入 AdReward 的代碼, 最後執行 Build & Run
   
   ```java
   private AdReward mAdReward = null;
@@ -711,7 +711,6 @@ import com.core.adnsdk.AdPoolListener;
   ViewGroup.LayoutParams vlp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
   mUnityPlayer.currentActivity.getWindow().addContentView(mRelativeLayout, vlp);
   ```
-
 
 ## 問題排解
 1. 影音廣告的影片, 有顯示CoverImage, 但播放影片時為黑屏
