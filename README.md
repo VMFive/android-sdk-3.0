@@ -684,6 +684,7 @@ import com.core.adnsdk.AdPoolListener;
   1. 設定 android sdk, java jdk 路徑
   
       Unity / Preferences / External Tools / SDK
+      
       Unity / Preferences / External Tools / JDK
   
   2. trouble writing output: Too many method references: 70332; max is 65536.
