@@ -683,6 +683,9 @@ import com.core.adnsdk.AdPoolListener;
   
   1. 設定 android sdk, java jdk 路徑
   
+      Unity / Preferences / External Tools / SDK
+      Unity / Preferences / External Tools / JDK
+  
   2. trouble writing output: Too many method references: 70332; max is 65536.
       
       請參考 https://github.com/darkdukey/Google-Play-Service-Lite, 刪除不需要的 gms modules
@@ -692,6 +695,8 @@ import com.core.adnsdk.AdPoolListener;
      因客戶的 unity project 已經加上 gms, 所以請移除 unity package 中 google-play-services.jar
      
   4. 修改 android bundle identifier
+  
+      File / Build Settings / Android / Player Settings / 右邊 inspector 視窗裡的安卓小人偶 / Bundle identifier
   
   5. 參考底下代碼, 完成串接, 主要注意的事項是, 在你想載入 reward 的地方呼叫 mAdReward.load(), 待 reward ad 準備完成後, 會透過 AdRewardListener.onAdLoaded() callback 回來, 並用戶可以使用 mAdReward.show() 展示廣告
   
