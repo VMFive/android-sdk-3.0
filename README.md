@@ -682,11 +682,20 @@ import com.core.adnsdk.AdPoolListener;
   請按照圖示載入 Unity package, 並參考 CallJavaCode.cs 加上載入 AdReward 的代碼, 最後執行 Build & Run
   
   1. 設定 android sdk, java jdk 路徑
+  
   2. trouble writing output: Too many method references: 70332; max is 65536.
-     https://github.com/darkdukey/Google-Play-Service-Lite
+      
+      請參考 https://github.com/darkdukey/Google-Play-Service-Lite, 刪除不需要的 gms modules
+      
   3. gms 衝突
+  
      因客戶的 unity project 已經加上 gms, 所以請移除 unity package 中 google-play-services.jar
+     
   4. 修改 android bundle identifier
+  
+  5. 參考底下代碼, 完成串接, 主要注意的事項是, 在你想展示 reward 的地方呼叫 mAdReward.load(), 待 reward ad 準備完成後, 會透過 AdRewardListener.onAdLoaded() callback 回來, 並透過 mAdReward.show() 展示廣告
+  
+  你可以在 AdRewardListener.onAdRewarded(), 或是 AdRewardListener.onAdClosed() callback 中更新 Unity 控件, 但因為 android 與 Unity 執行在不同的 thread, 因此需要 Unity 的代碼需要執行在 Unity main thread 中, 我們已經幫客戶實現 task queue, 客戶只需要執行 mAdReward.runOnMainThread(), 以及在 MonoBehaviour.Update 加上 mAdReward.update(), 就可以讓客戶在 android thread 上將要執行的 task 丟到 Unity main thread 執行
   
   ```java
   public class CallJavaCode : MonoBehaviour {
