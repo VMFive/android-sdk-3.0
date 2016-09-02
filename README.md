@@ -686,15 +686,24 @@ import com.core.adnsdk.AdPoolListener;
      https://github.com/darkdukey/Google-Play-Service-Lite
   3. gms 衝突
      因客戶的 unity project 已經加上 gms, 所以請移除 unity package 中 google-play-services.jar
+  4. 修改 android bundle identifier
   
   ```java
-  private AdReward mAdReward = null;
+  public class CallJavaCode : MonoBehaviour {
+  	private AdReward mAdReward = null;
 
 	void Start() {
 		mAdReward = new AdReward ("5630c874cef2370b13942b8f", "placement(reward_video)");
 		MyAdRewardListener adRewardListener = new MyAdRewardListener (mAdReward);
 		mAdReward.setListener (adRewardListener);
 		mAdReward.setTestMode (true);
+	}
+	
+	void Update () {
+		// android runs on different thread from Unity's, user need to post tasks run on main thread of Unity
+		if (mAdReward != null) {
+			mAdReward.update();
+		}
 	}
 
 	void OnGUI() {
@@ -704,8 +713,55 @@ import com.core.adnsdk.AdPoolListener;
 	}
 
 	void OnDestroy() {
-		mAdReward.onDestroy ();
+		if (mAdReward != null) {
+			mAdReward.onDestroy ();
+		}
 	}
+	
+	public class MyAdRewardListener : AdRewardListener {
+		AdReward mAdReward;
+
+		public MyAdRewardListener(AdReward adReward) {
+			mAdReward = adReward;
+		}
+
+		public void onAdLoaded(AndroidJavaObject adObject) {
+			mAdReward.show ();
+		}
+
+		public void onError(AndroidJavaObject err) {
+			print("onError: errorCode = " + err.Call<int>("ordinal") + ", errorMsg = " + err.Call<string>("toString"));
+		}
+
+		public void onAdClicked() {
+		}
+
+		public void onAdReleased() {
+		}
+
+		public bool onAdWatched() {
+			return false;
+		}
+
+		public void onAdImpressed() {
+		}
+
+		public String onAdRewarded(AndroidJavaObject rewardInfo) {
+			print("onAdRewarded: currency = " + rewardInfo.Call<String>("getCurrency") + ", amount = " + rewardInfo.Call<double>("getAmount"));
+			return "custom_string";
+		}
+
+		public void onAdReplayed() {
+		}
+
+		public void onAdClosed() {
+			// android runs on different thread from Unity's, user need to post tasks run on main thread of Unity
+			mAdReward.runOnMainThread (() => {
+				// this is something that user want to run on the main thread of Unity
+			});
+		}
+	}
+  }
   ```
   
 #### 串接 Card
