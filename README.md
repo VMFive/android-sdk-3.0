@@ -695,11 +695,17 @@ import com.core.adnsdk.AdPoolListener;
   
      因客戶的 unity project 已經加上 gms, 所以請移除 unity package 中 google-play-services.jar
      
-  4. 修改 android bundle identifier
+  4. No resource found that matches the given name (at 'theme' with value '@style/UnityThemeSelector').
+  
+      如果客戶使用 4.x Unity, 可能會遇到這個錯誤, 客戶需修改 AndroidManifest.xml 將 android:theme="@style/UnityThemeSelector" 拿掉
+      
+      Assets / Plugins / Android / AndroidManifest.xml
+     
+  5. 修改 android bundle identifier
   
       File / Build Settings / Android / Player Settings / 右邊 inspector 視窗裡的安卓小人偶 / Bundle identifier
   
-  5. 參考底下代碼, 完成串接, 主要注意的事項是, 在你想載入 reward 的地方呼叫 mAdReward.load(), 待 reward ad 準備完成後, 會透過 AdRewardListener.onAdLoaded() callback 回來, 並用戶可以使用 mAdReward.show() 展示廣告
+  6. 參考底下代碼, 完成串接, 主要注意的事項是, 在你想載入 reward 的地方呼叫 mAdReward.load(), 待 reward ad 準備完成後, 會透過 AdRewardListener.onAdLoaded() callback 回來, 並用戶可以使用 mAdReward.show() 展示廣告
   
   你可以在 AdRewardListener.onAdRewarded(), 或是 AdRewardListener.onAdClosed() callback 中更新 Unity 控件, 但因為 android 與 Unity 執行在不同的 thread, 因此 Unity 的代碼需要執行在 Unity main thread 中, 我們已經幫客戶實現 task queue, 客戶只需要將想執行的 Unity 代碼放到 mAdReward.runOnMainThread(), 以及在 MonoBehaviour.Update() 加上 mAdReward.update(), 就可以讓客戶在 android thread 上將要執行的 Unity task 丟到 Unity main thread 執行
   
