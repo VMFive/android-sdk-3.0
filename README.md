@@ -681,6 +681,12 @@ import com.core.adnsdk.AdPoolListener;
   [VMFiveADN_Reward.unitypackage](https://github.com/applauseadn/android-sdk-3.0/tree/master/VMFiveADN_UnityPackages)
   請按照圖示載入 Unity package, 並參考 CallJavaCode.cs 加上載入 AdReward 的代碼, 最後執行 Build & Run
   
+  1. 設定 android sdk, java jdk 路徑
+  2. trouble writing output: Too many method references: 70332; max is 65536.
+     https://github.com/darkdukey/Google-Play-Service-Lite
+  3. gms 衝突
+     因客戶的 unity project 已經加上 gms, 所以請移除 unity package 中 google-play-services.jar
+  
   ```java
   private AdReward mAdReward = null;
 
