@@ -687,15 +687,15 @@ import com.core.adnsdk.AdPoolListener;
       
       Unity / Preferences / External Tools / JDK
   
-  2. trouble writing output: Too many method references: 70332; max is 65536.
+  2. (Optional) trouble writing output: Too many method references: 70332; max is 65536.
       
       請參考 https://github.com/darkdukey/Google-Play-Service-Lite, 刪除不需要的 gms modules
       
-  3. gms 衝突
+  3. (Optional) gms 衝突
   
      因客戶的 unity project 已經加上 gms, 所以請移除 unity package 中 google-play-services.jar
      
-  4. No resource found that matches the given name (at 'theme' with value '@style/UnityThemeSelector').
+  4. (Optional) No resource found that matches the given name (at 'theme' with value '@style/UnityThemeSelector').
   
       如果客戶使用 4.x Unity, 可能會遇到這個錯誤, 客戶需修改 AndroidManifest.xml 將 android:theme="@style/UnityThemeSelector" 拿掉
       
