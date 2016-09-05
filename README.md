@@ -88,7 +88,7 @@ Applause SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
 #### Eclipse
 ----
 
-1. [下載最新版 SDK](https://github.com/applauseadn/android-sdk-3.0/releases)
+1. [下載最新版 SDK:jar](https://github.com/applauseadn/android-sdk-3.0/tree/master/VMFiveADNSDK)
 2. 將 SDK 的 JAR 檔拖至 ```libs``` 目錄下
 3. 加入 ```Google Play Service``` 的 ```library project```
 
@@ -705,7 +705,7 @@ import com.core.adnsdk.AdPoolListener;
   
       File / Build Settings / Android / Player Settings / 右邊 inspector 視窗裡的安卓小人偶 / Bundle identifier
       
-  7. Unity package 已附上 3.0.0 版本的 sdk, 如想更新 VMFiveADNSDK 為最新版本, 例如 3.x.x, 請到 [下載最新SDK](https://github.com/applauseadn/android-sdk-3.0/releases)
+  7. Unity package 已附上 3.0.0 版本的 sdk, 如想更新 VMFiveADNSDK 為最新版本, 例如 3.x.x, 請到 [下載最新版 SDK:jar](https://github.com/applauseadn/android-sdk-3.0/tree/master/VMFiveADNSDK)
   
       Assets / Plugins / Android / adnsdk-release.jar
   
