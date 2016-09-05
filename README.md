@@ -451,7 +451,7 @@ import com.core.adnsdk.AdPoolListener;
     <activity
         android:name="com.core.adnsdk.FullScreenVideoActivity"
         android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-        android:screenOrientation="landscape"
+        android:screenOrientation="sensorLandscape"
         android:hardwareAccelerated="true">
     </activity>
     ```
@@ -546,7 +546,7 @@ import com.core.adnsdk.AdPoolListener;
     <activity
         android:name="com.core.adnsdk.RewardActivity"
         android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-        android:screenOrientation="landscape"
+        android:screenOrientation="sensorLandscape"
         android:hardwareAccelerated="true">
     </activity>
     ```
