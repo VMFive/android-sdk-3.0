@@ -802,7 +802,7 @@ import com.core.adnsdk.AdPoolListener;
 ----
   串接 Card, 希望是開發者可以客製化 AdCard, 所以需要將 Unity 轉成 Android project(Eclipse, Androdi Studio), 撰寫好串接代碼(UnityPlayerActivity.java)後, 再由 Unity 那邊透過 JNI 的方式呼叫 UnityPlayerActivity.java 接口
   
-  串接 Card AdView 範例 [```UnityPlayerActivity```](https://github.com/applauseadn/android-sdk/blob/master/VMFiveUnity/app/src/main/java/com/vmfive/javaunitysample/UnityPlayerActivity.java)
+  串接 Card AdView 範例 [```UnityPlayerActivity```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveUnity/app/src/main/java/com/vmfive/javaunitysample/UnityPlayerActivity.java)
   
   ``` java
   // 需要生成一個擺放 AdView 的 container, 最後透過 addContentView 加載到 UnityPlayer
