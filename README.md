@@ -856,3 +856,9 @@ import com.core.adnsdk.AdPoolListener;
     // need to enable app scan in backend, and prompt this dialog to notice user
     ADN.showAppScanDialog(this, "是否同意讓我們收集App安裝資訊");
     ```
+
+    如果開發者已有現存機制可顯示相關收集App安裝資訊, 則可以使用底下方式開啟收集App安裝資訊功能, 但不跳出提醒視窗
+    ```java
+    ADN.setAppScanEnable(this, true);
+    ADN.setAppScanConfigured(this, true);
+    ```
