@@ -675,11 +675,11 @@ import com.core.adnsdk.AdPoolListener;
 
 #### 串接 Reward
 ----
-  * [Reward](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveUnity/Readme.md)
+  * [Reward](https://github.com/applauseadn/android-sdk-3.0/tree/master/VMFiveUnity#串接-reward)
   
 #### 串接 Card
 ----
-  * [Card](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveUnity/Readme.md)
+  * [Card](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveUnity#串接-card)
 
 ## 問題排解
 1. 影音廣告的影片, 有顯示CoverImage, 但播放影片時為黑屏
