@@ -75,7 +75,7 @@ public class VM5NativeVideo extends MoPubCustomEventVideoNative implements AdLis
             return;
         }
 
-        AdDelegator adDelegator = new AdDelegator(activity, apiKey, placementName, AdViewType.BANNER_VIDEO);
+        AdDelegator adDelegator = new AdDelegator(activity, apiKey, placementName, AdViewType.CARD_VIDEO);
         adDelegator.setTestMode(isTestMode);
         adDelegator.setAdListener(this);
         mAdDelegator = adDelegator;
