@@ -38,6 +38,9 @@ public class VM5NativeVideo extends MoPubCustomEventVideoNative implements AdLis
     private Activity mActivity;
     private CustomEventNativeListener mCustomEventNativeListener;
 
+    private Map<String, Object> mLocalExtras;
+    private Map<String, String> mServerExtras;
+
     @Override
     protected void loadNativeAd(@NonNull Activity activity,
                                 @NonNull CustomEventNativeListener customEventNativeListener,
@@ -47,6 +50,8 @@ public class VM5NativeVideo extends MoPubCustomEventVideoNative implements AdLis
 
         mActivity = activity;
         mCustomEventNativeListener = customEventNativeListener;
+        mLocalExtras = localExtras;
+        mServerExtras = serverExtras;
 
         String apiKey = "";
         if (serverExtras.containsKey("apiKey")) {
@@ -87,7 +92,7 @@ public class VM5NativeVideo extends MoPubCustomEventVideoNative implements AdLis
         Map<String, Object> myLocalExtras = new HashMap<>();
         JSONObject json = new JSONObject();
         myLocalExtras.put(DataKeys.JSON_BODY_KEY, json);
-        myLocalExtras.put(DataKeys.CLICK_TRACKING_URL_KEY, "clicktrackingurl");
+        myLocalExtras.put(DataKeys.CLICK_TRACKING_URL_KEY, mLocalExtras.get(DataKeys.CLICK_TRACKING_URL_KEY));
         try {
             json.put("imptracker", new JSONArray());
             json.put("clktracker", "expected clktracker");
@@ -120,6 +125,7 @@ public class VM5NativeVideo extends MoPubCustomEventVideoNative implements AdLis
         }
 
         Map<String, String> myServerExtras = new HashMap<>();
+        myServerExtras.put(DataKeys.CLICKTHROUGH_URL_KEY, mServerExtras.get(DataKeys.CLICK_TRACKING_URL_KEY));
         myServerExtras.put(PLAY_VISIBLE_PERCENT, "10");
         myServerExtras.put(PAUSE_VISIBLE_PERCENT, "5");
         myServerExtras.put(IMPRESSION_MIN_VISIBLE_PERCENT, "15");
@@ -170,7 +176,7 @@ public class VM5NativeVideo extends MoPubCustomEventVideoNative implements AdLis
 
     @Override
     public boolean onAdWatched() {
-        return true;
+        return false;
     }
 
     @Override
