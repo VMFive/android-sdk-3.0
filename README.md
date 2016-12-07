@@ -667,9 +667,7 @@ import com.core.adnsdk.AdPoolListener;
 ----
   請使用 3.0.5 版本以上的 ADNSDK, 串接 MoPub
   
-  ```java
-  Data: {"test": 1, "apiKey": "5630c874cef2370b13942b8f", "placement": "placement(native_mopub)"}
-  ```
+  > Data: {"test": 1, "apiKey": "5630c874cef2370b13942b8f", "placement": "placement(native_mopub)"}
   
   * [Banner](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Banner.java)
   * [Interstitial](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Interstitial.java)
