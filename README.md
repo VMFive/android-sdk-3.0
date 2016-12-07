@@ -681,7 +681,7 @@ import com.core.adnsdk.AdPoolListener;
 
 3. 客製化 Render
 
-  MoPub 支持客製化 Render, 即不需要使用 MoPub 自帶的控件, 例如: MoPubVideoNativeAdRenderer, 可以使用 VM5MoPubVideoNativeAdRenderer, 這樣的好像是廣告呈現的外觀較漂亮
+  MoPub 支持客製化 Render, 即不需要使用 MoPub 自帶的控件, 例如: MoPubVideoNativeAdRenderer, 可以改用 VM5MoPubVideoNativeAdRenderer, 好處是廣告呈現的外觀較漂亮
   
     ```java
     // Set up a renderer for a video native ad.
