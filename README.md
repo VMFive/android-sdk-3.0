@@ -679,25 +679,26 @@ import com.core.adnsdk.AdPoolListener;
   * [Native Video](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeVideo.java)
   * [Reward Video](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Reward.java)
 
+
   客製化 Render
   
   MoPub 支持客製化 Render, 即不需要使用 MoPub 自帶的控件, 例如: MoPubVideoNativeAdRenderer, 可以使用 VM5MoPubVideoNativeAdRenderer, 這樣的好像是廣告呈現的外觀較漂亮
   
-  ```java
-  // Set up a renderer for a video native ad.
-  videoAdRenderer = new VM5MoPubVideoNativeAdRenderer(
-          new VM5MediaViewBinder.Builder(R.layout.vm5_video_ad_list_item)
-                  .titleId(R.id.native_title)
-                  .textId(R.id.native_text)
-                  .mediaLayoutId(R.id.native_media_layout)
-                  .iconImageId(R.id.native_icon_image)
-                  .callToActionId(R.id.native_cta)
-                  .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
-                  .build());
-                  
-  // Register the renderers with the MoPubAdAdapter and then set the adapter on the ListView.
-  mAdAdapter.registerAdRenderer(videoAdRenderer);
-  ```
+    ```java
+    // Set up a renderer for a video native ad.
+    videoAdRenderer = new VM5MoPubVideoNativeAdRenderer(
+            new VM5MediaViewBinder.Builder(R.layout.vm5_video_ad_list_item)
+                    .titleId(R.id.native_title)
+                    .textId(R.id.native_text)
+                    .mediaLayoutId(R.id.native_media_layout)
+                    .iconImageId(R.id.native_icon_image)
+                    .callToActionId(R.id.native_cta)
+                    .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
+                    .build());
+
+    // Register the renderers with the MoPubAdAdapter and then set the adapter on the ListView.
+    mAdAdapter.registerAdRenderer(videoAdRenderer);
+    ```
   
 ## Unity
 
