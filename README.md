@@ -665,24 +665,23 @@ import com.core.adnsdk.AdPoolListener;
 
 #### MoPub
 ----
-    請使用 3.0.5 版本以上的 ADNSDK, 串接 MoPub
+  請使用 3.0.5 版本以上的 ADNSDK, 串接 MoPub
   
-    Mopub 資料格式
+1. Mopub 資料格式
   
-    > Data: {"test": 1, "apiKey": "5630c874cef2370b13942b8f", "placement": "placement(native_mopub)"}
+  > Data: {"test": 1, "apiKey": "5630c874cef2370b13942b8f", "placement": "placement(native_mopub)"}
   
-    MopPub 串接方式
-  
-    * [Banner](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Banner.java)
-    * [Interstitial](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Interstitial.java)
-    * [Native Static](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeStatic.java)
-    * [Native Video](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeVideo.java)
-    * [Reward Video](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Reward.java)
+2. MopPub 串接方式
 
+  * [Banner](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Banner.java)
+  * [Interstitial](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Interstitial.java)
+  * [Native Static](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeStatic.java)
+  * [Native Video](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeVideo.java)
+  * [Reward Video](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Reward.java)
 
-    客製化 Render
-  
-    MoPub 支持客製化 Render, 即不需要使用 MoPub 自帶的控件, 例如: MoPubVideoNativeAdRenderer, 可以使用 VM5MoPubVideoNativeAdRenderer, 這樣的好像是廣告呈現的外觀較漂亮
+3. 客製化 Render
+
+  MoPub 支持客製化 Render, 即不需要使用 MoPub 自帶的控件, 例如: MoPubVideoNativeAdRenderer, 可以使用 VM5MoPubVideoNativeAdRenderer, 這樣的好像是廣告呈現的外觀較漂亮
   
     ```java
     // Set up a renderer for a video native ad.
