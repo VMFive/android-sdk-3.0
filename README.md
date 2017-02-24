@@ -35,7 +35,7 @@
 <img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Video_Card.png?raw=true" alt="Video_Card" width="216" height="384">
 <img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Video_Native.png?raw=true" alt="Video_Native" width="216" height="384">
 
-Applause SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升而修改,提供更精準的投放提升廣告的成效與創造更多的收益.大部分的API命名與用法與2.0維持一致,已經串接2.0的開發者只需要小幅修改即可.
+Android SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升而修改,提供更精準的投放提升廣告的成效與創造更多的收益.大部分的API命名與用法與2.0維持一致,已經串接2.0的開發者只需要小幅修改即可.
 
 ## 導入 SDK
 #### Android Studio
