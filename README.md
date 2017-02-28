@@ -1,26 +1,26 @@
 # Android-SDK
-- [概論](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#概論) 
-- [導入 SDK](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#導入-sdk)
-  - [Android Studio](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#android-studio)
-  - [Eclipse](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#eclipse)
-- [更新 AndroidManifest.xml](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#更新-androidmanifestxml)
-- [初始化 SDK](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#初始化sdk)
-- [廣告格式](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#廣告格式)
-  - [卡片型原生影音廣告](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#卡片型原生影音廣告)
-    * [Layout](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#layout)
-    * [載入並且展示原生影音廣告](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#載入並且展示原生影片廣告)
-  - [ListView/RecyclerView 型原生影音廣告](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#listviewrecyclerview-型原生影片廣告)
-  - [影音插頁廣告(Interstitial)](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#影音插頁廣告interstitial)
-  - [獎勵型廣告(Reward)](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#獎勵型廣告reward)
-- [客製化 Renderer](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#客製化-renderer)
-- [輪播(Mediation)](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#輪播mediation)
-  - [AdMob](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#admob)
-  - [DFP](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#dfp)
-  - [MoPub](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#mopub)
-- [Unity](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#unity)
-  - [串接 Reward](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#串接-reward)
-  - [串接 Card](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#串接-card)
-- [問題排解](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#問題排解)
+- [概論](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#概論) 
+- [導入 SDK](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#導入-sdk)
+  - [Android Studio](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#android-studio)
+  - [Eclipse](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#eclipse)
+- [更新 AndroidManifest.xml](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#更新-androidmanifestxml)
+- [初始化 SDK](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#初始化sdk)
+- [廣告格式](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#廣告格式)
+  - [卡片型原生影音廣告](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#卡片型原生影音廣告)
+    * [Layout](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#layout)
+    * [載入並且展示原生影音廣告](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#載入並且展示原生影片廣告)
+  - [ListView/RecyclerView 型原生影音廣告](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#listviewrecyclerview-型原生影片廣告)
+  - [影音插頁廣告(Interstitial)](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#影音插頁廣告interstitial)
+  - [獎勵型廣告(Reward)](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#獎勵型廣告reward)
+- [客製化 Renderer](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#客製化-renderer)
+- [輪播(Mediation)](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#輪播mediation)
+  - [AdMob](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#admob)
+  - [DFP](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#dfp)
+  - [MoPub](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#mopub)
+- [Unity](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#unity)
+  - [串接 Reward](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#串接-reward)
+  - [串接 Card](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#串接-card)
+- [問題排解](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#問題排解)
 
 
 ## 概論
@@ -48,7 +48,7 @@ Android SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
         android {
             repositories {
                 maven {
-                    url 'https://raw.githubusercontent.com/applauseadn/android-sdk-3.0/master/VMFiveADNSDK/'
+                    url 'https://raw.githubusercontent.com/VMFive/android-sdk-3.0/master/VMFiveADNSDK/'
                 }
             }
         }
@@ -70,10 +70,10 @@ Android SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
         06-21 18:18:13.568 13385-13419/com.core.vmfiveadnetwork E/CentralManager: Current SDK version: 3.0.0
         06-21 18:18:13.568 13385-13419/com.core.vmfiveadnetwork E/CentralManager: The most updated SDK version: 3.0.1
     
-    > 也可使用[指定版本](https://github.com/applauseadn/android-sdk-3.0/tree/master/VMFiveADNSDK/com/vmfive/VMFiveADNSDK), ```'com.vmfive:VMFiveADNSDK:3.0.0:debug@aar' ```
+    > 也可使用[指定版本](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveADNSDK/com/vmfive/VMFiveADNSDK), ```'com.vmfive:VMFiveADNSDK:3.0.0:debug@aar' ```
 
 * 手動
-    1. [下載最新版 SDK](https://github.com/applauseadn/android-sdk-3.0/releases)
+    1. [下載最新版 SDK](https://github.com/VMFive/android-sdk-3.0/releases)
     2. 將 SDK 以新增 ```Module Dependency``` 的方式加入 ```Gradle```  <TODO -這部分可以再說清楚一點>
     3. 修改 ```build.gradle``` 引入 ```Google GMS```，您的 ```build.gradle``` 最後應該看起來類似這樣：
     
@@ -88,7 +88,7 @@ Android SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
 #### Eclipse
 ----
 
-1. [下載最新版 SDK:jar](https://github.com/applauseadn/android-sdk-3.0/tree/master/VMFiveADNSDK)
+1. [下載最新版 SDK:jar](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveADNSDK)
 2. 將 SDK 的 JAR 檔拖至 ```libs``` 目錄下
 3. 加入 ```Google Play Service``` 的 ```library project```
 
@@ -131,17 +131,17 @@ Android SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
 </p>
 ###### Layout
 ------
-您可以直接套用範例專案中的 [```card_ad_item.xml```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/res/layout/card_ad_item.xml) ，但是為了使用者體驗以及廣告成效，**強烈建議您根據 app 排版自行設計適合的廣告排版**。
+您可以直接套用範例專案中的 [```card_ad_item.xml```](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveAdNetwork/app/src/main/res/layout/card_ad_item.xml) ，但是為了使用者體驗以及廣告成效，**強烈建議您根據 app 排版自行設計適合的廣告排版**。
 <TODO - Layout example>
 
 文字和圖片等素材使用標準的 ```TextView``` 和 ```ImageView``` 呈現即可，但**用來播放影音廣告的元件請務必使用 ```com.core.adnsdk.VideoPlayer```**。
 
 另外需要注意的是 -  CTA 文字需要設定 ```Background``` 屬性，**好提高廣告成效並取得更佳的分潤請務必使用**。
-例如我們的範例 App 就在 [```native_video_cta_border.xml```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/res/drawable/native_video_cta_border.xml) 為 ```CTA Text``` 加上了邊框且指定 ```android:background="@drawable/native_video_cta_border"```。
+例如我們的範例 App 就在 [```native_video_cta_border.xml```](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/res/drawable/native_video_cta_border.xml) 為 ```CTA Text``` 加上了邊框且指定 ```android:background="@drawable/native_video_cta_border"```。
 
 ###### 完整代碼演示
 ---
-開始撰寫代碼之前，需要先引入以下的物件，完整的程式碼請參考 [```ExampleCard.java```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/ExampleCard.java)
+開始撰寫代碼之前，需要先引入以下的物件，完整的程式碼請參考 [```ExampleCard.java```](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/ExampleCard.java)
 
 ###### 載入並且展示廣告
 ---
@@ -276,7 +276,7 @@ import com.core.adnsdk.ErrorMessage;
 
 ###### 完整代碼演示
 ---
-開始撰寫代碼之前，需要先引入以下的物件，完整的程式碼請參考 [```ExampleListView.java```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/ExampleListView.java), [```ExampleRecyclerView.java```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/ExampleRecyclerView.java), 以下舉 ListView 例子說明
+開始撰寫代碼之前，需要先引入以下的物件，完整的程式碼請參考 [```ExampleListView.java```](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/ExampleListView.java), [```ExampleRecyclerView.java```](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/ExampleRecyclerView.java), 以下舉 ListView 例子說明
 
 ###### 載入並且展示廣告
 ---
@@ -390,12 +390,12 @@ import com.core.adnsdk.AdPoolListener;
 
 #### 影音插頁廣告(Interstitial)
 <p align="center">
-<img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Video_Interstitial.png?raw=true" alt="Video_Interstitial" width="216" height="384">
+<img src="https://github.com/VMFive/android-sdk-3.0/blob/master/images/Video_Interstitial.png?raw=true" alt="Video_Interstitial" width="216" height="384">
 </p>
 
 ###### 完整代碼演示
 ---
-完整的程式碼請參考 [```MainActivity.java Interstitial fragment```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#L342)
+完整的程式碼請參考 [```MainActivity.java Interstitial fragment```](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#L342)
 
 ###### 載入並且展示廣告
 ---
@@ -529,13 +529,13 @@ import com.core.adnsdk.AdPoolListener;
 
 #### 獎勵型廣告(Reward)
 <p align="center">
-<img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Video_Reward_Front.png?raw=true" alt="Video_Reward" width="216" height="384">
+<img src="https://github.com/VMFive/android-sdk-3.0/blob/master/images/Video_Reward_Front.png?raw=true" alt="Video_Reward" width="216" height="384">
 <img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Video_Reward_Back.png?raw=true" alt="Video_Reward" width="216" height="384">
 </p>
 
 ###### 完整代碼演示
 ---
-完整的程式碼請參考 [```MainActivity.java Reward fragment```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#L522)
+完整的程式碼請參考 [```MainActivity.java Reward fragment```](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#L522)
 
 ###### 載入並且展示廣告
 ---
@@ -634,7 +634,7 @@ import com.core.adnsdk.AdPoolListener;
 
 ## 客製化 Renderer
 
-  以客製化 Card 廣告格式為例, 使用者可以修改 [CustomCardAdRenderer.java](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/renderer/CustomCardAdRenderer.java) 並將此 renderer 傳入
+  以客製化 Card 廣告格式為例, 使用者可以修改 [CustomCardAdRenderer.java](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/renderer/CustomCardAdRenderer.java) 並將此 renderer 傳入
   
   使用者可以客製化 renderer, 例如動態創建廣告格式, 或是顯示動畫等
   
@@ -654,14 +654,14 @@ import com.core.adnsdk.AdPoolListener;
 
 #### AdMob
 ----
-  * [Banner](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobBanner.java)
-  * [Interstitial](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobInterstitial.java)
+  * [Banner](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobBanner.java)
+  * [Interstitial](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobInterstitial.java)
 
 #### DFP
 ----
   DFP 代碼撰寫方式與 AdMob 相同
-  * [Banner](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobBanner.java)
-  * [Interstitial](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobInterstitial.java)
+  * [Banner](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobBanner.java)
+  * [Interstitial](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobInterstitial.java)
 
 #### MoPub
 ----
@@ -673,11 +673,11 @@ import com.core.adnsdk.AdPoolListener;
   
 2. MopPub 串接方式
 
-  * [Banner](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Banner.java)
-  * [Interstitial](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Interstitial.java)
-  * [Native Static](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeStatic.java)
-  * [Native Video](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeVideo.java)
-  * [Reward Video](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Reward.java)
+  * [Banner](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Banner.java)
+  * [Interstitial](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Interstitial.java)
+  * [Native Static](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeStatic.java)
+  * [Native Video](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeVideo.java)
+  * [Reward Video](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveMoPubAdapter/src/VM5Reward.java)
 
 3. 客製化 Render
 
@@ -703,11 +703,11 @@ import com.core.adnsdk.AdPoolListener;
 
 #### 串接 Reward
 ----
-  * [Reward](https://github.com/applauseadn/android-sdk-3.0/tree/master/VMFiveUnity#串接-reward)
+  * [Reward](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveUnity#串接-reward)
   
 #### 串接 Card
 ----
-  * [Card](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveUnity#串接-card)
+  * [Card](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveUnity#串接-card)
 
 ## 問題排解
 1. 影音廣告的影片, 有顯示CoverImage, 但播放影片時為黑屏
@@ -729,7 +729,7 @@ import com.core.adnsdk.AdPoolListener;
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     ```
     > 若開發者的 Application 為 Android M(23) 版本以上, 需要增加 request permission dialog, 可參考
-    [VMFiveAdNetwork Demo App 的實現](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java)
+    [VMFiveAdNetwork Demo App 的實現](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java)
     ``` java
     // check permissions for M, if some permission denied, it would shut down activity
     checkRequiredPermissions();
@@ -749,7 +749,7 @@ import com.core.adnsdk.AdPoolListener;
     
 4. 啟用收集用戶手機安裝App資訊
 
-    若開發者同意開啟收集用戶手機安裝App資訊，可以提昇廣告效益，SDK可能會優先投放廣告給開發者，進而提高開發者廣告營收，開發者需要配合SDK，顯示相關訊息讓用戶知道！如[參考代碼: MainActivity.java](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#L135)
+    若開發者同意開啟收集用戶手機安裝App資訊，可以提昇廣告效益，SDK可能會優先投放廣告給開發者，進而提高開發者廣告營收，開發者需要配合SDK，顯示相關訊息讓用戶知道！如[參考代碼: MainActivity.java](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#L135)
     
     ```java
     // need to enable app scan in backend, and prompt this dialog to notice user
@@ -761,3 +761,4 @@ import com.core.adnsdk.AdPoolListener;
     ADN.setAppScanEnable(this, true);
     ADN.setAppScanConfigured(this, true);
     ```
+VMFive

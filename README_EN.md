@@ -1,26 +1,26 @@
 # Android-SDK
-- [Introduction](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#概論) 
-- [Import SDK](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#導入-sdk)
-  - [Android Studio](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#android-studio)
-  - [Eclipse](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#eclipse)
-- [Modify AndroidManifest.xml](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#更新-androidmanifestxml)
-- [Initialize SDK](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#初始化sdk)
-- [Ad Format](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#廣告格式)
-  - [Video Card](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#卡片型原生影音廣告)
-    * [Layout](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#layout)
-    * [Load Native Ads](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#載入並且展示原生影片廣告)
-  - [Insert Native Ads in ListView/RecyclerView ](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#listviewrecyclerview-型原生影片廣告)
-  - [Video Interstitial](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#影音插頁廣告interstitial)
-  - [Reward Video](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#獎勵型廣告reward)
-- [Custom Render Renderer](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#客製化-renderer)
-- [Mediation](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#輪播mediation)
-  - [AdMob](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#admob)
-  - [DFP](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#dfp)
-  - [MoPub](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#mopub)
-- [Unity](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#unity)
-  - [Reward Video](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#串接-reward)
-  - [Video Card](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#串接-card)
-- [FAQ](https://github.com/applauseadn/android-sdk-3.0/blob/master/README.md#問題排解)
+- [Introduction](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#概論) 
+- [Import SDK](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#導入-sdk)
+  - [Android Studio](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#android-studio)
+  - [Eclipse](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#eclipse)
+- [Modify AndroidManifest.xml](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#更新-androidmanifestxml)
+- [Initialize SDK](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#初始化sdk)
+- [Ad Format](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#廣告格式)
+  - [Video Card](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#卡片型原生影音廣告)
+    * [Layout](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#layout)
+    * [Load Native Ads](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#載入並且展示原生影片廣告)
+  - [Insert Native Ads in ListView/RecyclerView ](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#listviewrecyclerview-型原生影片廣告)
+  - [Video Interstitial](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#影音插頁廣告interstitial)
+  - [Reward Video](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#獎勵型廣告reward)
+- [Custom Render Renderer](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#客製化-renderer)
+- [Mediation](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#輪播mediation)
+  - [AdMob](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#admob)
+  - [DFP](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#dfp)
+  - [MoPub](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#mopub)
+- [Unity](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#unity)
+  - [Reward Video](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#串接-reward)
+  - [Video Card](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#串接-card)
+- [FAQ](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#問題排解)
 
 
 ## 概論
@@ -46,7 +46,7 @@ Besides the place developers pf banners，developers can place ads in more place
         android {
             repositories {
                 maven {
-                    url 'https://raw.githubusercontent.com/applauseadn/android-sdk-3.0/master/VMFiveADNSDK/'
+                    url 'https://raw.githubusercontent.com/VMFive/android-sdk-3.0/master/VMFiveADNSDK/'
                 }
             }
         }
@@ -68,10 +68,10 @@ Besides the place developers pf banners，developers can place ads in more place
         06-21 18:18:13.568 13385-13419/com.core.vmfiveadnetwork E/CentralManager: Current SDK version: 3.0.0
         06-21 18:18:13.568 13385-13419/com.core.vmfiveadnetwork E/CentralManager: The most updated SDK version: 3.0.1
     
-    > You can also assign a[specific versiom](https://github.com/applauseadn/android-sdk-3.0/tree/master/VMFiveADNSDK/com/vmfive/VMFiveADNSDK), ```'com.vmfive:VMFiveADNSDK:3.0.0:debug@aar' ```
+    > You can also assign a[specific versiom](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveADNSDK/com/vmfive/VMFiveADNSDK), ```'com.vmfive:VMFiveADNSDK:3.0.0:debug@aar' ```
 
 * Manual
-    1. [Download the latest SDK](https://github.com/applauseadn/android-sdk-3.0/releases)
+    1. [Download the latest SDK](https://github.com/VMFive/android-sdk-3.0/releases)
     2. Use ```Module Dependency``` in the menu to import the SDK  and check ```Gradle```  <TODO -這部分可以再說清楚一點>
     3. Modify ```build.gradle``` 引入 ```Google GMS```，your ```build.gradle``` should look like this：
     
@@ -86,7 +86,7 @@ Besides the place developers pf banners，developers can place ads in more place
 #### Eclipse
 ----
 
-1. [Download the latest SDK:jar](https://github.com/applauseadn/android-sdk-3.0/tree/master/VMFiveADNSDK)
+1. [Download the latest SDK:jar](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveADNSDK)
 2. Drag the jar into ```libs``` folder
 3. Import ```Google Play Service```  ```library project```
 
@@ -131,17 +131,17 @@ Besides the place developers pf banners，developers can place ads in more place
 ###### Layout
 ------
 
-You can apply the sample layout [```card_ad_item.xml```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/res/layout/card_ad_item.xml) ，but for user experience and ad performance reason，**We strongly suggest arrange the layout to fit in your user interface perfectly**。
+You can apply the sample layout [```card_ad_item.xml```](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/res/layout/card_ad_item.xml) ，but for user experience and ad performance reason，**We strongly suggest arrange the layout to fit in your user interface perfectly**。
 <TODO - Layout example>
 
 For text and image creatives,  ```TextView``` and ```ImageView``` will do，but**you must use ```com.core.adnsdk.VideoPlayer``` for video playbacks**。
 
 Also, you need to set up - ```Background``` property for CTA text，**For better Advertising effect and get more revenue, we suggest set this property**。
-In our sample App ,[```native_video_cta_border.xml```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/res/drawable/native_video_cta_border.xml) we add border lines for ```CTA Text``` and assign```android:background="@drawable/native_video_cta_border"```。
+In our sample App ,[```native_video_cta_border.xml```](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/res/drawable/native_video_cta_border.xml) we add border lines for ```CTA Text``` and assign```android:background="@drawable/native_video_cta_border"```。
 
 ###### Sample code
 ---
-Full sample code :[```ExampleCard.java```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/ExampleCard.java)
+Full sample code :[```ExampleCard.java```](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/ExampleCard.java)
 
 ###### Load and show ad
 ---
@@ -279,7 +279,7 @@ import com.core.adnsdk.ErrorMessage;
 ###### Sample code
 ---
 Full sample code :
-[```ExampleListView.java```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/ExampleListView.java), [```ExampleRecyclerView.java```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/ExampleRecyclerView.java), We will use ListView as an example to demonstrate
+[```ExampleListView.java```](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/ExampleListView.java), [```ExampleRecyclerView.java```](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/ExampleRecyclerView.java), We will use ListView as an example to demonstrate
 
 ###### Load and show ad
 ---
@@ -392,12 +392,12 @@ import com.core.adnsdk.AdPoolListener;
 
 #### Interstitial
 <p align="center">
-<img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Video_Interstitial.png?raw=true" alt="Video_Interstitial" width="216" height="384">
+<img src="https://github.com/VMFive/android-sdk-3.0/blob/master/images/Video_Interstitial.png?raw=true" alt="Video_Interstitial" width="216" height="384">
 </p>
 
 ###### 完整代碼演示
 ---
-Full sample code [```MainActivity.java Interstitial fragment```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#L342)
+Full sample code [```MainActivity.java Interstitial fragment```](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#L342)
 
 ###### 載入並且展示廣告
 ---
@@ -536,7 +536,7 @@ Full sample code [```MainActivity.java Interstitial fragment```](https://github.
 
 ###### Sample Code
 ---
-Full Sample code [```MainActivity.java Reward fragment```](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#L522)
+Full Sample code [```MainActivity.java Reward fragment```](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#L522)
 
 ###### Load and Show Ad
 ---
@@ -634,7 +634,7 @@ Full Sample code [```MainActivity.java Reward fragment```](https://github.com/ap
 
 ## Customized Renderer
 
-  You can modify [CustomCardAdRenderer.java](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/renderer/CustomCardAdRenderer.java) and use this renderer.
+  You can modify [CustomCardAdRenderer.java](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/renderer/CustomCardAdRenderer.java) and use this renderer.
   
   You can use customized render to
   
@@ -655,14 +655,14 @@ Full Sample code [```MainActivity.java Reward fragment```](https://github.com/ap
 
 #### AdMob
 ----
-  * [Banner](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobBanner.java)
-  * [Interstitial](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobInterstitial.java)
+  * [Banner](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobBanner.java)
+  * [Interstitial](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobInterstitial.java)
 
 #### DFP
 ----
   Same with AdMob 
-  * [Banner](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobBanner.java)
-  * [Interstitial](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobInterstitial.java)
+  * [Banner](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobBanner.java)
+  * [Interstitial](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/AdMobInterstitial.java)
 
 #### MoPub
 ----
@@ -674,11 +674,11 @@ Full Sample code [```MainActivity.java Reward fragment```](https://github.com/ap
   
 2. MopPub Integration Sample Code
 
-  * [Banner](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Banner.java)
-  * [Interstitial](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Interstitial.java)
-  * [Native Static](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeStatic.java)
-  * [Native Video](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeVideo.java)
-  * [Reward Video](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Reward.java)
+  * [Banner](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Banner.java)
+  * [Interstitial](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Interstitial.java)
+  * [Native Static](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeStatic.java)
+  * [Native Video](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeVideo.java)
+  * [Reward Video](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Reward.java)
 
 3. Customized Render
 
@@ -704,11 +704,11 @@ Full Sample code [```MainActivity.java Reward fragment```](https://github.com/ap
 
 #### Reward Video
 ----
-  * [Reward](https://github.com/applauseadn/android-sdk-3.0/tree/master/VMFiveUnity#串接-reward)
+  * [Reward](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveUnity#串接-reward)
   
 #### Video Card
 ----
-  * [Card](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveUnity#串接-card)
+  * [Card](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveUnity#串接-card)
 
 ## FAQ
 1. CoverImage is displayed, but black screen when video is playing.
@@ -730,7 +730,7 @@ Full Sample code [```MainActivity.java Reward fragment```](https://github.com/ap
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     ```
     > If your Application is above Android M(23), you need request permission dialog, 
-    [VMFiveAdNetwork Demo App's implementation](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java)
+    [VMFiveAdNetwork Demo App's implementation](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java)
     ``` java
     // check permissions for M, if some permission denied, it would shut down activity
     checkRequiredPermissions();
@@ -749,7 +749,7 @@ Full Sample code [```MainActivity.java Reward fragment```](https://github.com/ap
     
 4. Collect data about Apps installed on client device
 
-    If you're willing to collect data for us, we will share more revenue with you. You need to use a SDK built in dialog to inform users.[reference: MainActivity.java](https://github.com/applauseadn/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#L135)
+    If you're willing to collect data for us, we will share more revenue with you. You need to use a SDK built in dialog to inform users.[reference: MainActivity.java](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#L135)
     
     ```java
     // need to enable app scan in backend, and prompt this dialog to notice user
@@ -762,3 +762,4 @@ Full Sample code [```MainActivity.java Reward fragment```](https://github.com/ap
     ADN.setAppScanEnable(this, true);
     ADN.setAppScanConfigured(this, true);
     ```
+VMFive
