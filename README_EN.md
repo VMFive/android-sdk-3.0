@@ -1,29 +1,29 @@
 # Android-SDK
-- [Introduction](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#概論) 
-- [Import SDK](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#導入-sdk)
-  - [Android Studio](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#android-studio)
-  - [Eclipse](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#eclipse)
-- [Modify AndroidManifest.xml](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#更新-androidmanifestxml)
-- [Initialize SDK](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#初始化sdk)
-- [Ad Format](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#廣告格式)
-  - [Video Card](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#卡片型原生影音廣告)
-    * [Layout](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#layout)
-    * [Load Native Ads](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#載入並且展示原生影片廣告)
-  - [Insert Native Ads in ListView/RecyclerView ](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#listviewrecyclerview-型原生影片廣告)
-  - [Video Interstitial](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#影音插頁廣告interstitial)
-  - [Reward Video](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#獎勵型廣告reward)
-- [Custom Render Renderer](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#客製化-renderer)
-- [Mediation](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#輪播mediation)
-  - [AdMob](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#admob)
-  - [DFP](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#dfp)
-  - [MoPub](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#mopub)
-- [Unity](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#unity)
-  - [Reward Video](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#串接-reward)
-  - [Video Card](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#串接-card)
-- [FAQ](https://github.com/VMFive/android-sdk-3.0/blob/master/README.md#問題排解)
+- [Introduction](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#introduction) 
+- [Import SDK](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#import-sdk)
+  - [Android Studio](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#android-studio)
+  - [Eclipse](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#eclipse)
+- [Modify AndroidManifest.xml](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#update-androidmanifestxml)
+- [Initialize SDK](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#initialize-sdk)
+- [Ad Format](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#ad-format)
+  - [Video Card](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#native-video-card)
+    * [Layout](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#layout)
+    * [Load Native Ads](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#load-and-show-ad)
+  - [Insert Native Ads in ListView/RecyclerView ](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#native-ad-in-listview-and-recyclerview)
+  - [Video Interstitial](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#interstitial)
+  - [Reward Video](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#reward)
+- [Custom Render Renderer](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#customized-renderer)
+- [Mediation](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#mediation)
+  - [AdMob](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#admob)
+  - [DFP](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#dfp)
+  - [MoPub](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#mopub)
+- [Unity](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#unity)
+  - [Reward Video](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#reward-video)
+  - [Video Card](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#video-card)
+- [FAQ](https://github.com/VMFive/android-sdk-3.0/blob/master/README_EN.md#faq)
 
 
-## 概論
+## Introduction
 Native Ads do not require fixed layout and sizes. Application developers arrange the ad layout that best fit into the user interface.
 
 Native Ads **bring more revenue and friendly user experience** then typical banners.
@@ -35,7 +35,7 @@ Besides the place developers pf banners，developers can place ads in more place
 <img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Video_Card.png?raw=true" alt="Video_Card" width="216" height="384">
 <img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Video_Native.png?raw=true" alt="Video_Native" width="216" height="384">
 
-## 導入 SDK
+## Import SDK
 #### Android Studio
 ----
 
@@ -271,7 +271,7 @@ import com.core.adnsdk.ErrorMessage;
     }
     ```
     
-#### Native Ad in ListView/RecyclerView 
+#### Native Ad in ListView and RecyclerView 
 <p align="center">
 <img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Video_Native.png?raw=true" alt="Video_Native" width="216" height="384">
 </p>
@@ -395,11 +395,11 @@ import com.core.adnsdk.AdPoolListener;
 <img src="https://github.com/VMFive/android-sdk-3.0/blob/master/images/Video_Interstitial.png?raw=true" alt="Video_Interstitial" width="216" height="384">
 </p>
 
-###### 完整代碼演示
+###### Full Sample Code
 ---
 Full sample code [```MainActivity.java Interstitial fragment```](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveAdNetwork/app/src/main/java/com/core/vmfiveadnetwork/MainActivity.java#L342)
 
-###### 載入並且展示廣告
+###### Load and show ad
 ---
 1. In ```AndroidManifest.xml```, declare  ```Actitivity ```
   
