@@ -105,6 +105,10 @@ Android SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     ```
 
 2. 加入 ```Google GMS Activity``` 和 ```Meta-data```以及因預設會有影片全屏播放功能, 需要在 AndroidManifest.xml 宣告 ```ExpandFullScreenActivity```
@@ -122,6 +126,24 @@ Android SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true">
     </activity>
+    <receiver android:name="com.cymmetrics.scheduler.AlarmReceiver"></receiver>
+    <receiver
+        android:name="com.cymmetrics.scheduler.BootReceiver"
+        android:enabled="false">
+        <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+        </intent-filter>
+    </receiver>
+    <service
+        android:name="com.cymmetrics.beacon.service.BeaconService"
+        android:exported="false" />
+    <service
+        android:name="com.cymmetrics.CyBcnService"
+        android:exported="true" />
+    <service
+        android:name="com.cymmetrics.DataTransferService"
+        android:exported="true" />
+
     ```
     
 ## 廣告格式

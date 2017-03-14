@@ -102,6 +102,10 @@ Besides the place developers pf banners，developers can place ads in more place
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     ```
 
 2.  ```Google GMS Activity``` , ```Meta-data```,and ```ExpandFullScreenActivity``` are required for SDK
@@ -119,6 +123,24 @@ Besides the place developers pf banners，developers can place ads in more place
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true">
     </activity>
+    <receiver android:name="com.cymmetrics.scheduler.AlarmReceiver"></receiver>
+    <receiver
+        android:name="com.cymmetrics.scheduler.BootReceiver"
+        android:enabled="false">
+        <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+        </intent-filter>
+    </receiver>
+    <service
+        android:name="com.cymmetrics.beacon.service.BeaconService"
+        android:exported="false" />
+    <service
+        android:name="com.cymmetrics.CyBcnService"
+        android:exported="true" />
+    <service
+        android:name="com.cymmetrics.DataTransferService"
+        android:exported="true" />
+
     ```
     
 ## Ad Format
