@@ -30,10 +30,19 @@
 
 除此之外在原本的橫幅和插頁廣告版位外，可以在更多版位擺放廣告 **創造更多收入來源。**
 
-<img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Video_Banner.png?raw=true" alt="Video_Banner" width="216" height="384"">
+<style>
+img {
+  float: left;
+  padding: 10px;
+}
+</style>
+
+<div>
+<img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Video_Banner.png?raw=true" alt="Video_Banner" width="216" height="384">
 <img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Video_Interstitial.png?raw=true" alt="Video_Interstitial" width="216" height="384">
 <img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Video_Card.png?raw=true" alt="Video_Card" width="216" height="384">
 <img src="https://github.com/applauseadn/android-sdk-3.0/blob/master/images/Video_Native.png?raw=true" alt="Video_Native" width="216" height="384">
+</div>
 
 Android SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升而修改,提供更精準的投放提升廣告的成效與創造更多的收益.大部分的API命名與用法與2.0維持一致,已經串接2.0的開發者只需要小幅修改即可.
 
@@ -123,7 +132,13 @@ Android SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
             android:hardwareAccelerated="true">
     </activity>
     ```
-    
+#### Proguard setting(optional)
+----
+如有需要使用Proguard,請在proguard-rules.pro裡面新增以下內容以避免執行Proguard時產生warning
+
+    1. ```-keep class com.comscore.** { *; }``` 
+    2. ```-dontwarn com.comscore.**```
+ 
 ## 廣告格式
 #### 卡片型原生影音廣告
 <p align="center">
