@@ -116,9 +116,8 @@ Android SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
 #### Proguard setting(optional)
 ----
 如有需要使用Proguard,請在proguard-rules.pro裡面新增以下內容以避免執行Proguard時產生warning
-
-    1. ```-keep class com.comscore.** { *; }``` 
-    2. ```-dontwarn com.comscore.**```
+1. ```-keep class com.comscore.** { *; }``` 
+2. ```-dontwarn com.comscore.**```
  
 ## 廣告格式
 #### 卡片型原生影音廣告
@@ -668,7 +667,11 @@ import com.core.adnsdk.AdPoolListener;
 
    建議使用 MoPub 4.1.2 以上版本 搭配 本SDK 3.1.3 以上之版本
    
-  2. 下載 ```mopub-android-sdk``` 的 [source module](https://github.com/mopub/mopub-android-sdk/releases/tag/v4.12.0), 引入 Project 後進入其中的sub module ```mopub-sdk-base``` 增加以下內容至 ```com.mopub.network.TrackingRequest``` (完整檔案見 [TrackingRequest](https://gist.github.com/aaronlee-xyz/a016e89511ec1140c91749d1ecfb02cd))
+  2. 修改 MoPub SDK 部分 source code
+     * Step1: 下載 ```mopub-android-sdk``` 的 [source module](https://github.com/mopub/mopub-android-sdk/releases/tag/v4.12.0)
+     * Step2: 引入其中的```mopub-sdk```至您的專案
+     * Step3: 進入其中的sub module ```mopub-sdk-base``` 編輯 ```com.mopub.network.TrackingRequest``` 
+     * Step4: 增加以下程式片段 try-catch範圍中的程式碼 (完整檔案見 [TrackingRequest](https://gist.github.com/aaronlee-xyz/a016e89511ec1140c91749d1ecfb02cd))
  
   ```java
   public static void makeTrackingHttpRequest(@Nullable final Iterable<String> urls,
@@ -680,13 +683,15 @@ import com.core.adnsdk.AdPoolListener;
       
       final TrackingRequest trackingRequest = new TrackingRequest(url, internalListener);
       requestQueue.add(trackingRequest);
+      /*VM5 add start*/
       try {
-           Object object = Class.forName("com.core.adnsdk.ComscoreTrackingMediator").getMethod("getInstancee").invoke(null);
-           java.lang.reflect.Method method = Class.forName("com.core.adnsdk.ComscoreTrackingMediator").getMethod("sendTrackUrl", String.class);
-           method.invoke(object, url);
+          Object object = Class.forName("com.core.adnsdk.ComscoreTrackingMediator").getMethod("getInstancee").invoke(null);
+          java.lang.reflect.Method method = Class.forName("com.core.adnsdk.ComscoreTrackingMediator").getMethod("sendTrackUrl", String.class);
+          method.invoke(object, url);
       } catch (Exception e) {
-           e.printStackTrace();
+          e.printStackTrace();
       }
+       /*VM5 add end*/
     }
   }
   ```
