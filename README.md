@@ -662,45 +662,13 @@ import com.core.adnsdk.AdPoolListener;
 
 #### MoPub
 ----
-  串接 MoPub 時請先確認 MoPub 版本 以及本SDK之相容性, 同時為了讓 MoPub 版本與 SDK 的功能相容, 請串接者務必使用 VM5 之 客製化Rendere 並且對 MoPub SDK 增加一個介面供第三方 Tracking service 使用, 詳述如下：
+  串接 MoPub 時請先確認 MoPub 版本 以及本SDK之相容性, 同時為了讓 MoPub 與 本SDK 相容, 請串接者務必下載 MoPub SDK source 增加一個介面供第三方 Tracking service 使用, 同時請務必使用 VM5 之 客製化Rendere, 詳述如下：
   
-1. 相容性
+  1. 相容性
 
    建議使用 MoPub 4.1.2 以上版本 搭配 本SDK 3.1.3 以上之版本
-   
-1. Mopub 資料格式
-  
-  > Data: {"test": 1, "apiKey": "5630c874cef2370b13942b8f", "placement": "placement(native_mopub)"}
-  
-2. MopPub 串接方式
-
-  * [Banner](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Banner.java)
-  * [Interstitial](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Interstitial.java)
-  * [Native Static](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeStatic.java)
-  * [Native Video](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeVideo.java)
-  * [Reward Video](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveMoPubAdapter/src/VM5Reward.java)
-
-3. 使用 VM5 客製化 Render 取代 MoPub 原生 Renderer
-
-  為了使 本SDK 與 MoPub 相容，請改用 VM5MoPubVideoNativeAdRenderer, 同時本 Renderer 提供的外觀較美觀
-  
-  ```java
-    // Set up a renderer for a video native ad.
-    videoAdRenderer = new VM5MoPubVideoNativeAdRenderer(
-            new VM5MediaViewBinder.Builder(R.layout.vm5_video_ad_list_item)
-                    .titleId(R.id.native_title)
-                    .textId(R.id.native_text)
-                    .mediaLayoutId(R.id.native_media_layout)
-                    .iconImageId(R.id.native_icon_image)
-                    .callToActionId(R.id.native_cta)
-                    .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
-                    .build());
-
-    // Register the renderers with the MoPubAdAdapter and then set the adapter on the ListView.
-    mAdAdapter.registerAdRenderer(videoAdRenderer);
-   ```
    
- 4. 將 ```mopub-sdk-base``` 以 source module 的方式引入 Project 並增加以下內容至 ```com.mopub.network.TrackingRequest``` 之
+  2. 下載 ```mopub-android-sdk``` 的 [source module](https://github.com/mopub/mopub-android-sdk/releases/tag/v4.12.0), 引入 Project 後進入其中的sub module ```mopub-sdk-base``` 增加以下內容至 ```com.mopub.network.TrackingRequest``` 
  
   ```java
   public static void makeTrackingHttpRequest(@Nullable final Iterable<String> urls,
@@ -722,6 +690,19 @@ import com.core.adnsdk.AdPoolListener;
     }
   }
   ```
+   
+   
+3. Mopub 資料格式
+  
+  > Data: {"test": 1, "apiKey": "5630c874cef2370b13942b8f", "placement": "placement(native_mopub)"}
+  
+4. MopPub 串接方式
+
+  * [Banner](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Banner.java)
+  * [Interstitial](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Interstitial.java)
+  * [Native Static](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeStatic.java)
+  * [Native Video](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeVideo.java)
+  * [Reward Video](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveMoPubAdapter/src/VM5Reward.java)
   
 ## Unity
 
