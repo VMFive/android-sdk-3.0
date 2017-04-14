@@ -690,13 +690,31 @@ import com.core.adnsdk.AdPoolListener;
     }
   }
   ```
+  3. 使用 VM5 客製化 Render 取代 MoPub 原生 Renderer
+  
+  為了使 本SDK 與 MoPub 相容，請改用 VM5MoPubVideoNativeAdRenderer, 同時本 Renderer 提供的外觀較美觀
    
+  ```java
+     // Set up a renderer for a video native ad.
+     videoAdRenderer = new VM5MoPubVideoNativeAdRenderer(
+             new VM5MediaViewBinder.Builder(R.layout.vm5_video_ad_list_item)
+                     .titleId(R.id.native_title)
+                     .textId(R.id.native_text)
+                     .mediaLayoutId(R.id.native_media_layout)
+                     .iconImageId(R.id.native_icon_image)
+                     .callToActionId(R.id.native_cta)
+                     .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
+                     .build());
+ 
+     // Register the renderers with the MoPubAdAdapter and then set the adapter on the ListView.
+     mAdAdapter.registerAdRenderer(videoAdRenderer);
+   ```
    
-3. Mopub 資料格式
+  4. Mopub 資料格式
   
-  > Data: {"test": 1, "apiKey": "5630c874cef2370b13942b8f", "placement": "placement(native_mopub)"}
+   > Data: {"test": 1, "apiKey": "5630c874cef2370b13942b8f", "placement": "placement(native_mopub)"}
   
-4. MopPub 串接方式
+  5. MopPub 串接方式
 
   * [Banner](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Banner.java)
   * [Interstitial](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5Interstitial.java)
