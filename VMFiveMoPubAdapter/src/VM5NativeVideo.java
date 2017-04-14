@@ -1,10 +1,9 @@
 package com.mopub.simpleadsdemo;
 
-import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.core.adnsdk.ADN;
 import com.core.adnsdk.AdDelegator;
 import com.core.adnsdk.AdListener;
 import com.core.adnsdk.AdObject;
@@ -35,20 +34,20 @@ public class VM5NativeVideo extends MoPubCustomEventVideoNative implements AdLis
 
     private AdDelegator mAdDelegator;
 
-    private Activity mActivity;
+    private Context mActivity;
     private CustomEventNativeListener mCustomEventNativeListener;
 
     private Map<String, Object> mLocalExtras;
     private Map<String, String> mServerExtras;
 
     @Override
-    protected void loadNativeAd(@NonNull Activity activity,
+    protected void loadNativeAd(@NonNull Context context,
                                 @NonNull CustomEventNativeListener customEventNativeListener,
                                 @NonNull Map<String, Object> localExtras,
                                 @NonNull Map<String, String> serverExtras) {
         Log.d(TAG, "Request native Ad");
 
-        mActivity = activity;
+        mActivity = context;
         mCustomEventNativeListener = customEventNativeListener;
         mLocalExtras = localExtras;
         mServerExtras = serverExtras;
@@ -80,7 +79,7 @@ public class VM5NativeVideo extends MoPubCustomEventVideoNative implements AdLis
             return;
         }
 
-        AdDelegator adDelegator = new AdDelegator(activity, apiKey, placementName, AdViewType.CARD_VIDEO);
+        AdDelegator adDelegator = new AdDelegator(context, apiKey, placementName, AdViewType.CARD_VIDEO);
         adDelegator.setTestMode(isTestMode);
         adDelegator.setAdListener(this);
         mAdDelegator = adDelegator;
@@ -120,6 +119,7 @@ public class VM5NativeVideo extends MoPubCustomEventVideoNative implements AdLis
             }
             json.put("video", adObject.getVastVideoXml());
             json.remove("extraimage");
+            json.put("uniqueID", adObject.getUUID());
         } catch (JSONException e) {
             e.printStackTrace();
         }

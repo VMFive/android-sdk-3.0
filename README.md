@@ -83,50 +83,30 @@ Android SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
     > 也可使用[指定版本](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveADNSDK/com/vmfive/VMFiveADNSDK), ```'com.vmfive:VMFiveADNSDK:3.0.0:debug@aar' ```
 
 * 手動
-    1. [下載最新版 SDK](https://github.com/VMFive/android-sdk-3.0/releases)
-    2. 將 SDK 以新增 ```Module Dependency``` 的方式加入 ```Gradle```  <TODO -這部分可以再說清楚一點>
-    3. 修改 ```build.gradle``` 引入 ```Google GMS```，您的 ```build.gradle``` 最後應該看起來類似這樣：
-    
-        ```java
-        dependencies {
-            compile fileTree(dir: 'libs', include: ['*.jar'])
-            ...
-            compile 'com.google.android.gms:play-services-ads:8.4.0'
-        }
-        ```
+    1. [下載最新版 AAR](https://github.com/VMFive/android-sdk-3.0/releases)
+    2. 將 SDK 以新增 ```new module -> import .JAR/.AAR``` 的方式引入 ```adnsdk-release.aar```
+    3. 確認 ```settings.gradle``` 內正確引入 ```':adnsdk-release'```
 
 #### Eclipse
 ----
+為了讓串接者透過更少的步驟完成串接，自3.1.2版起將採用aar作為主要串接方式
 
-1. [下載最新版 SDK:jar](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveADNSDK)
-2. 將 SDK 的 JAR 檔拖至 ```libs``` 目錄下
-3. 加入 ```Google Play Service``` 的 ```library project```
 
 ## 更新 AndroidManifest.xml
 1. 修改 ```AndroidManifest.xml``` 加入必要的權限
 
     ```java
     //Required permissions
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     ```
 
-2. 加入 ```Google GMS Activity``` 和 ```Meta-data```以及因預設會有影片全屏播放功能, 需要在 AndroidManifest.xml 宣告 ```ExpandFullScreenActivity```
+2. 因預設會有影片全屏播放功能, 需要在 AndroidManifest.xml 宣告 ```ExpandFullScreenActivity```
 
     ```java
-    <activity
-        android:name="com.google.android.gms.ads.AdActivity"
-        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-        android:hardwareAccelerated="true"/>
-    <meta-data
-        android:name="com.google.android.gms.version"
-        android:value="@integer/google_play_services_version"/>
     <activity
             android:name="com.core.adnsdk.ExpandScreenVideoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
