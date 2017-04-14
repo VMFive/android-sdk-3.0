@@ -89,7 +89,7 @@ Android SDK 3.0主要是因應新版廣告投放後台的效能與彈性提升�
 
 #### Eclipse
 ----
-為了讓串接者透過更少的步驟完成串接，自3.1.2版起將採用aar作為主要串接方式
+為了讓串接者透過更少的步驟完成串接，自3.1.2版起將採用Android Studio .AAR 作為主要串接方式，若有Eclipse .JAR串接之需求，請洽詢業務
 
 
 ## 更新 AndroidManifest.xml
@@ -662,8 +662,12 @@ import com.core.adnsdk.AdPoolListener;
 
 #### MoPub
 ----
-  請使用 3.0.5 版本以上的 ADNSDK, 串接 MoPub
-  
+  串接 MoPub 時請先確認 MoPub 版本 以及本SDK之相容性, 同時為了讓 MoPub 版本與 SDK 的功能相容, 請串接者務必使用 VM5 之 客製化Rendere 並且對 MoPub SDK 增加一個介面供第三方 Tracking service 使用, 詳述如下：
+  
+1. 相容性
+
+   建議使用 MoPub 4.1.2 以上版本 搭配 本SDK 3.1.3 以上之版本
+   
 1. Mopub 資料格式
   
   > Data: {"test": 1, "apiKey": "5630c874cef2370b13942b8f", "placement": "placement(native_mopub)"}
@@ -676,11 +680,11 @@ import com.core.adnsdk.AdPoolListener;
   * [Native Video](https://github.com/VMFive/android-sdk-3.0/blob/master/VMFiveMoPubAdapter/src/VM5NativeVideo.java)
   * [Reward Video](https://github.com/VMFive/android-sdk-3.0/tree/master/VMFiveMoPubAdapter/src/VM5Reward.java)
 
-3. 客製化 Render
+3. 使用 VM5 客製化 Render 取代 MoPub 原生 Renderer
 
-  MoPub 支持客製化 Render, 即不需要使用 MoPub 自帶的控件, 例如: MoPubVideoNativeAdRenderer, 可以改用 VM5MoPubVideoNativeAdRenderer, 好處是廣告呈現的外觀較漂亮
-  
-    ```java
+  為了使 本SDK 與 MoPub 相容，請改用 VM5MoPubVideoNativeAdRenderer, 同時本 Renderer 提供的外觀較美觀
+  
+  ```java
     // Set up a renderer for a video native ad.
     videoAdRenderer = new VM5MoPubVideoNativeAdRenderer(
             new VM5MediaViewBinder.Builder(R.layout.vm5_video_ad_list_item)
@@ -694,8 +698,31 @@ import com.core.adnsdk.AdPoolListener;
 
     // Register the renderers with the MoPubAdAdapter and then set the adapter on the ListView.
     mAdAdapter.registerAdRenderer(videoAdRenderer);
-    ```
+   ```
+   
+ 4. 將 ```mopub-sdk-base``` 以 source module 的方式引入 Project 並增加以下內容至 ```com.mopub.network.TrackingRequest``` 之
+ 
+  ```java
+  public static void makeTrackingHttpRequest(@Nullable final Iterable<String> urls,
+            @Nullable final Context context,
+            @Nullable final Listener listener,
+            final BaseEvent.Name name) {
   
+      ...
+      
+      final TrackingRequest trackingRequest = new TrackingRequest(url, internalListener);
+      requestQueue.add(trackingRequest);
+      try {
+           Object object = Class.forName("com.core.adnsdk.ComscoreTrackingMediator").getMethod("getInstancee").invoke(null);
+           java.lang.reflect.Method method = Class.forName("com.core.adnsdk.ComscoreTrackingMediator").getMethod("sendTrackUrl", String.class);
+           method.invoke(object, url);
+      } catch (Exception e) {
+           e.printStackTrace();
+      }
+    }
+  }
+  ```
+  
 ## Unity
 
 #### 串接 Reward
