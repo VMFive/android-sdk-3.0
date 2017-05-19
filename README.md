@@ -1,4 +1,4 @@
-For English Intro, please refer to [English wiki](https://github.com/VMFive/android-sdk-3.0/wiki)
+For English Intro, please refer to [English wiki](https://github.com/VMFive/android-sdk-3.0/wiki/%23Global---Home)
 
 ## 概論
 原生廣告沒有固定的規格大小，需要透過應用程式開發者的巧思將廣告的素材重新設計與編排後融合到使用者介面之中。
