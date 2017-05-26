@@ -13,13 +13,17 @@ import android.widget.Toast;
 
 import com.core.adnsdk.AdBannerType;
 import com.core.adnsdk.AdBannerView;
+import com.core.adnsdk.AdProfile;
+import com.core.adnsdk.AuthList;
 import com.core.adnsdk.AdViewType;
 import com.core.adnsdk.AdObject;
+import com.core.adnsdk.AuthListBuilder;
 import com.core.adnsdk.CardAdRenderer;
 import com.core.adnsdk.CardViewBinder;
 import com.core.adnsdk.ErrorMessage;
 import com.core.adnsdk.AdListener;
-import com.core.adnsdk.AdView;
+import com.core.adnsdk.KeywordList;
+import com.core.adnsdk.KeywordListBuilder;
 import com.core.adnsdk.NativeAdAdapter;
 import com.core.adnsdk.AdPoolListener;
 
@@ -60,19 +64,25 @@ public class ExampleListViewWithBanner extends Activity {
         CardAdRenderer adRenderer = new CardAdRenderer(binder);
 
         final Context context = getApplication();
-        final AdViewType adViewType = AdViewType.CARD_VIDEO;
         // create NativeAdAdapter, and given original adapter of user
         // given a placement tag for different advertisement section
+
+        //start ad Profile builder
+        final AdViewType adViewType = AdViewType.CARD_VIDEO;
+        AuthList mAuthList = new AuthListBuilder()
+                .add("5630c874cef2370b13942b8f", "placement(list_banner)")
+                .build();
+        AdProfile mAdProfile = new AdProfile.AdProfileBuilder()
+                .setAuthList(mAuthList)
+                .setTestMode(true).build();
         mNativeAdAdapter = new NativeAdAdapter(
-                  this
+                this
                 , listView
                 , originalAdapter
-                , "5630c874cef2370b13942b8f"
-                , "placement(list_banner)"
+                , mAdProfile
                 , adViewType);
         // if user don't provide renderer, it would use default renderer.
         mNativeAdAdapter.setAdRenderer(adRenderer, AdViewType.CARD_VIDEO); // for Video type
-        mNativeAdAdapter.setTestMode(true); // for testing
         mNativeAdAdapter.setFrequency(1, 3);
         /**
          * Users are also capable of using {@link com.core.adnsdk.AdPoolListenerAdapter}, default adapter design pattern of AdPoolListener, to receive notification.
@@ -143,11 +153,17 @@ public class ExampleListViewWithBanner extends Activity {
 
         ViewGroup adLayout = (ViewGroup) findViewById(R.id.example_adlayout);
 
+        //start ad Profile builder
         final AdBannerType adBannerType = AdBannerType.BANNER_VIDEO;
+        AuthList mAuthList_Banner = new AuthListBuilder()
+                .add("5630c874cef2370b13942b8f", "placement(list_banner)")
+                .build();
+        AdProfile mAdProfile_Banner = new AdProfile.AdProfileBuilder()
+                .setAuthList(mAuthList_Banner)
+                .setTestMode(true).build();
         mAdBannerView = new AdBannerView(
-                  this
-                , "5630c874cef2370b13942b8f"
-                , "placement(banner_video)"
+                this
+                , mAdProfile_Banner
                 , adBannerType);
         mAdBannerView.setViewParent(adLayout);
         /**
@@ -195,7 +211,6 @@ public class ExampleListViewWithBanner extends Activity {
             }
         });
 
-        mAdBannerView.setTestMode(true);
         mAdBannerView.loadAd();
     }
 

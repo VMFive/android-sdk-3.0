@@ -9,14 +9,15 @@ import com.core.adnsdk.AdBannerType;
 import com.core.adnsdk.AdBannerView;
 import com.core.adnsdk.AdListener;
 import com.core.adnsdk.AdObject;
+import com.core.adnsdk.AdProfile;
+import com.core.adnsdk.AuthList;
+import com.core.adnsdk.AuthListBuilder;
 import com.core.adnsdk.ErrorMessage;
-import com.core.adnsdk.AdViewType;
+import com.core.adnsdk.TimeUnit;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.mediation.MediationAdRequest;
 import com.google.android.gms.ads.mediation.customevent.CustomEventBanner;
 import com.google.android.gms.ads.mediation.customevent.CustomEventBannerListener;
-import com.core.adnsdk.TimeUnit;
-import com.core.adnsdk.AdView;
 
 /**
  * Created by yangmingyi on 15/10/16.
@@ -35,16 +36,18 @@ public class AdMobBanner implements CustomEventBanner {
                                 Bundle bundle) {
         Log.d(TAG, "Request AdBannerView Ad");
 
+        //start ad Profile builder
         final AdBannerType adBannerType = AdBannerType.BANNER_VIDEO;
         if (mAdBannerView == null) {
-            mAdBannerView = new AdBannerView(
-                      (Activity)context
-                    , "5630c874cef2370b13942b8f"
-                    , "placement(banner_admob)"
-                    , adBannerType);
+            AuthList mAuthList = new AuthListBuilder()
+                    .add("5630c874cef2370b13942b8f", "placement(banner_admob)")
+                    .build();
+            AdProfile mAdProfile = new AdProfile.AdProfileBuilder()
+                    .setAuthList(mAuthList)
+                    .setTestMode(true)
+                    .build();
+            mAdBannerView = new AdBannerView((Activity) context, mAdProfile, adBannerType);
         }
-
-        mAdBannerView.setTestMode(true);
         // because AdMob can control rotation frequency, it disable auto rotation here
         mAdBannerView.setRotation(false); // for banner
         mAdBannerView.setRotationTimeUnit(TimeUnit.STOP);

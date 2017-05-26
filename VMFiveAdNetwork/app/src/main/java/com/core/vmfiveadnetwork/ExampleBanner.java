@@ -10,11 +10,12 @@ import com.core.adnsdk.AdBannerType;
 import com.core.adnsdk.AdBannerView;
 import com.core.adnsdk.AdListener;
 import com.core.adnsdk.AdObject;
+import com.core.adnsdk.AdProfile;
+import com.core.adnsdk.AuthList;
+import com.core.adnsdk.AuthListBuilder;
 import com.core.adnsdk.BannerAdRenderer;
-import com.core.adnsdk.ErrorMessage;
-import com.core.adnsdk.AdViewType;
 import com.core.adnsdk.BannerViewBinder;
-import com.core.adnsdk.AdView;
+import com.core.adnsdk.ErrorMessage;
 
 public class ExampleBanner extends FragmentActivity {
     private static final String TAG = "ExampleBanner";
@@ -35,15 +36,19 @@ public class ExampleBanner extends FragmentActivity {
                 .videoPlayerId(R.id.native_video_player_layout)
                 .build();
 
-        // set layout builder to adRenderer
+        //set layout builder to adRenderer
         BannerAdRenderer adRenderer = new BannerAdRenderer(binder);
 
+        //start ad Profile builder
         final AdBannerType adBannerType = AdBannerType.BANNER_VIDEO;
-        mAdBannerView = new AdBannerView(
-                  this
-                , "5630c874cef2370b13942b8f"
-                , "placement(banner_video)"
-                , adBannerType);
+        AuthList mAuthList = new AuthListBuilder()
+                .add("5630c874cef2370b13942b8f", "placement(banner_video)")
+                .build();
+        AdProfile mAdProfile = new AdProfile.AdProfileBuilder()
+                .setAuthList(mAuthList)
+                .setTestMode(true)
+                .build();
+        mAdBannerView = new AdBannerView(this, mAdProfile, adBannerType);
         mAdBannerView.setViewParent(adLayout);
         // if user don't provide renderer, it would use default renderer.
         mAdBannerView.setAdRenderer(adRenderer);
@@ -92,7 +97,6 @@ public class ExampleBanner extends FragmentActivity {
             }
         });
         //adLayout.addView(mAdBannerView);
-        mAdBannerView.setTestMode(true);
         mAdBannerView.loadAd();
     }
 

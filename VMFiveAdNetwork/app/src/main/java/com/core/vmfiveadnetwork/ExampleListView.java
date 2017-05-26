@@ -14,15 +14,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.core.adnsdk.AdObject;
-import com.core.adnsdk.CardAdRenderer;
-import com.core.adnsdk.CardViewBinder;
-import com.core.adnsdk.ErrorMessage;
-import com.core.adnsdk.AdViewType;
-import com.core.adnsdk.NativeAdAdapter;
-import com.core.adnsdk.AdPoolListener;
+import com.core.adnsdk.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ExampleListView extends Activity {
@@ -73,19 +66,26 @@ public class ExampleListView extends Activity {
         CardAdRenderer adRenderer = new CardAdRenderer(binder);
 
         final Context context = getApplication();
-        final AdViewType adViewType = AdViewType.CARD_VIDEO;
         // create NativeAdAdapter, and given original adapter of user
         // given a placement tag for different advertisement section
+
+        //start ad Profile builder
+        final AdViewType adViewType = AdViewType.CARD_VIDEO;
+        AuthList mAuthList = new AuthListBuilder()
+                .add("5630c874cef2370b13942b8f", "placement(list)")
+                .build();
+        AdProfile mAdProfile = new AdProfile.AdProfileBuilder()
+                .setAuthList(mAuthList)
+                .setTestMode(true)
+                .build();
         mNativeAdAdapter = new NativeAdAdapter(
-                  this
+                this
                 , listView
                 , originalAdapter
-                , "5630c874cef2370b13942b8f"
-                , "placement(list)"
+                , mAdProfile
                 , adViewType);
         // if user don't provide renderer, it would use default renderer.
         mNativeAdAdapter.setAdRenderer(adRenderer, adViewType); // for Video type
-        mNativeAdAdapter.setTestMode(true); // for testing
         mNativeAdAdapter.setFrequency(1, 3);
         /**
          * Users are also capable of using {@link com.core.adnsdk.AdPoolListenerAdapter}, default adapter design pattern of AdPoolListener, to receive notification.

@@ -2,13 +2,19 @@ package com.mopub.simpleadsdemo;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.core.adnsdk.AdDelegator;
 import com.core.adnsdk.AdListener;
 import com.core.adnsdk.AdObject;
+import com.core.adnsdk.AdProfile;
 import com.core.adnsdk.AdViewType;
+import com.core.adnsdk.AuthList;
+import com.core.adnsdk.AuthListBuilder;
 import com.core.adnsdk.ErrorMessage;
+import com.core.adnsdk.KeywordList;
+import com.core.adnsdk.KeywordListBuilder;
 import com.mopub.common.DataKeys;
 import com.mopub.nativeads.MoPubCustomEventVideoNative;
 import com.mopub.nativeads.NativeErrorCode;
@@ -16,9 +22,12 @@ import com.mopub.nativeads.NativeErrorCode;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.net.HttpURLConnection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.mopub.common.DataKeys.IMPRESSION_MIN_VISIBLE_PERCENT;
 import static com.mopub.common.DataKeys.IMPRESSION_VISIBLE_MS;
@@ -78,9 +87,43 @@ public class VM5NativeVideo extends MoPubCustomEventVideoNative implements AdLis
             customEventNativeListener.onNativeAdFailed(NativeErrorCode.NATIVE_ADAPTER_CONFIGURATION_ERROR);
             return;
         }
+        KeywordList keywordList = null;
+        KeywordListBuilder keywordListBuilder = null;
+        if (serverExtras.containsKey("keywords")) {
+            try {
+                String arrayStr = serverExtras.get("keywords");
+                if (!TextUtils.isEmpty(arrayStr)) {
+                     keywordListBuilder = new KeywordListBuilder();
 
-        AdDelegator adDelegator = new AdDelegator(context, apiKey, placementName, AdViewType.CARD_VIDEO);
-        adDelegator.setTestMode(isTestMode);
+                    if (arrayStr.startsWith("[")) {
+                        Pattern p = Pattern.compile("\".*?\"");
+                        Matcher matcher = p.matcher(arrayStr);
+                        while (matcher.find()) {
+                            Log.i(TAG, "keywords =>: " + matcher.group(0));
+                            keywordListBuilder.add(matcher.group(0).replace("\"",""));
+                        }
+                    } else {
+                        keywordListBuilder.add(arrayStr);
+                    }
+                    keywordList = keywordListBuilder.build();
+                }
+                Log.i(TAG, "keywords count: " + ((keywordList != null)? keywordList.getCount(): 0));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            Log.i(TAG, "keywords, not seen");
+        }
+        AuthList mAuthList = new AuthListBuilder()
+                .add(apiKey, placementName, "default", 1).build();
+
+        AdProfile mAdProfile = new AdProfile.AdProfileBuilder()
+                .setAuthList(mAuthList)
+                .setKeywordList(keywordList)
+                .setTestMode(isTestMode).build();
+
+        AdDelegator adDelegator = new AdDelegator(context, mAdProfile, AdViewType.CARD_VIDEO);
         adDelegator.setAdListener(this);
         mAdDelegator = adDelegator;
         adDelegator.loadAd();

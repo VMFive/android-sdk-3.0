@@ -9,7 +9,10 @@ import android.widget.Toast;
 import com.core.adnsdk.AdCustom;
 import com.core.adnsdk.AdListener;
 import com.core.adnsdk.AdObject;
+import com.core.adnsdk.AdProfile;
 import com.core.adnsdk.AdViewType;
+import com.core.adnsdk.AuthList;
+import com.core.adnsdk.AuthListBuilder;
 import com.core.adnsdk.CardAdRenderer;
 import com.core.adnsdk.CardViewBinder;
 import com.core.adnsdk.ErrorMessage;
@@ -43,11 +46,19 @@ public class ExampleCustom extends FragmentActivity {
         CardAdRenderer adRenderer = new CardAdRenderer(binder);
 
         final ViewGroup mainContainer = (ViewGroup) findViewById(R.id.example_adlayout);
+
+        //start ad Profile builder
         final AdViewType adViewType = AdViewType.CARD_VIDEO;
+        AuthList mAuthList = new AuthListBuilder()
+                .add("5630c874cef2370b13942b8f", "placement(custom)")
+                .build();
+        AdProfile mAdProfile = new AdProfile.AdProfileBuilder()
+                .setAuthList(mAuthList)
+                .setTestMode(true)
+                .build();
         mAdCustom = new AdCustom(
-                  this
-                , "5630c874cef2370b13942b8f"
-                , "placement(custom)"
+                this
+                , mAdProfile
                 , adViewType);
         mAdCustom.setViewParent(mainContainer);
         // if user don't provide renderer, it would use default renderer.
@@ -96,7 +107,6 @@ public class ExampleCustom extends FragmentActivity {
                 Log.d(TAG, "onAdImpressed.");
             }
         });
-        mAdCustom.setTestMode(true);
         mAdCustom.loadAd();
     }
 

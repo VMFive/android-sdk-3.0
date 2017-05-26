@@ -1,19 +1,21 @@
 package com.core.vmfiveadnetwork;
 
-import com.core.adnsdk.AdBannerType;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+
 import com.core.adnsdk.AdInterstitial;
 import com.core.adnsdk.AdInterstitialType;
 import com.core.adnsdk.AdListener;
 import com.core.adnsdk.AdObject;
+import com.core.adnsdk.AdProfile;
+import com.core.adnsdk.AuthList;
+import com.core.adnsdk.AuthListBuilder;
 import com.core.adnsdk.ErrorMessage;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.mediation.MediationAdRequest;
 import com.google.android.gms.ads.mediation.customevent.CustomEventInterstitial;
 import com.google.android.gms.ads.mediation.customevent.CustomEventInterstitialListener;
-
-import android.content.Context;
-import android.os.Bundle;
-import android.util.Log;
 
 
 /**
@@ -32,17 +34,18 @@ public class AdMobInterstitial implements CustomEventInterstitial {
                                       MediationAdRequest mediationAdRequest,
                                       Bundle customEventExtras) {
         Log.d(TAG, "Request AdInterstitial Ad");
-
+        //start ad Profile builder
         final AdInterstitialType adInterstitialType = AdInterstitialType.INTERSTITIAL_VIDEO;
-        adInterstitial = new AdInterstitial(
-                  context
-                , "5630c874cef2370b13942b8f"
-                , "placement(interstitial_admob)"
-                , adInterstitialType);
-
+        AuthList mAuthList = new AuthListBuilder()
+                .add("5630c874cef2370b13942b8f", "placement(interstitial_admob)")
+                .build();
+        AdProfile mAdProfile = new AdProfile.AdProfileBuilder()
+                .setAuthList(mAuthList)
+                .setTestMode(true)
+                .build();
+        adInterstitial = new AdInterstitial(context, mAdProfile, adInterstitialType);
         AdInterstitial.addAdInterstitial(adInterstitial);
 
-        adInterstitial.setTestMode(true);
         /**
          * Users are also capable of using {@link com.core.adnsdk.AdListenerAdapter}, default adapter design pattern of AdListener, to receive notification.
          * Therefore, users can focus on specific events they care about.

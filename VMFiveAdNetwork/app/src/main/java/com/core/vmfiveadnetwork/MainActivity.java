@@ -46,11 +46,15 @@ import com.core.adnsdk.AdInterstitial;
 import com.core.adnsdk.AdInterstitialType;
 import com.core.adnsdk.AdListener;
 import com.core.adnsdk.AdObject;
+import com.core.adnsdk.AdProfile;
 import com.core.adnsdk.AdReward;
 import com.core.adnsdk.AdRewardListener;
 import com.core.adnsdk.AdRewardType;
+import com.core.adnsdk.AuthList;
+import com.core.adnsdk.AuthListBuilder;
 import com.core.adnsdk.ErrorMessage;
 import com.core.adnsdk.SDKController;
+import com.core.adnsdk.VersionUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -137,7 +141,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         menu.add(0, MENU_ABOUT, 0, "About");
         menu.add(0, MENU_CLEAR_RESOURCE_CACHE, 0, "Clear File Cache");
@@ -148,9 +152,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case MENU_ABOUT:
                 String title = "Information";
                 String messages = "";
@@ -158,7 +162,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 messages += "Version Code: " + SDKController.getInstance(this).getSdkVersion() + "." + SDKController.getInstance(this).getSdkBuild() + "\n";
                 messages += "IMEI: " + SDKController.getInstance(this).getDeviceInfo().getIMEI() + "\n";
                 messages += "MAC addr: " + SDKController.getInstance(this).getDeviceInfo().getWifiMac() + "\n";
-                messages += "IP addr: " + SDKController.getInstance(this).getDeviceInfo().getIPAddress();
+                messages += "IP addr: " + SDKController.getInstance(this).getDeviceInfo().getIPAddress() + "\n";
+                messages += "Advertising Id: " + SDKController.getInstance(this).getDeviceInfo().getAdvertisingId();
                 final AlertDialog alertDialog = getAlertDialog(title, messages);
                 alertDialog.show();
                 break;
@@ -359,12 +364,17 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+            AuthList mAuthList = new AuthListBuilder()
+                    .add("5630c874cef2370b13942b8f", "placement(interstitial_video)")
+                    .build();
+            AdProfile mAdProfile = new AdProfile.AdProfileBuilder()
+                    .setAuthList(mAuthList)
+                    .setTestMode(true)
+                    .build();
             mAdInterstitial = new AdInterstitial(
-                      getActivity()
-                    , "5630c874cef2370b13942b8f"
-                    , "placement(interstitial_video)"
+                    getActivity()
+                    , mAdProfile
                     , AdInterstitialType.INTERSTITIAL_VIDEO);
-            mAdInterstitial.setTestMode(true);
         }
 
         @Override
@@ -539,12 +549,17 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            mAdReward = new AdReward(
-                      getActivity()
-                    , "5630c874cef2370b13942b8f"
-                    , "placement(reward_video)"
-                    , AdRewardType.REWARD_VIDEO);
-            mAdReward.setTestMode(true);
+            AuthList mAuthList = new AuthListBuilder()
+                    .add("5630c874cef2370b13942b8f", "placement(reward_video)")
+                    .build();
+            AdProfile mAdProfile = new AdProfile.AdProfileBuilder()
+                    .setAuthList(mAuthList)
+                    .setTestMode(true)
+                    .build();
+                mAdReward = new AdReward(
+                        getActivity()
+                        , mAdProfile
+                        , AdRewardType.REWARD);
         }
 
         @Override
@@ -697,7 +712,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         if (!addPermission(permissionsList, Manifest.permission.ACCESS_COARSE_LOCATION)) {
             permissionsNeeded.add("GPS(Coarse Location)");
         }
-        if (!addPermission(permissionsList, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+        if (VersionUtils.hasJellyBean() && !addPermission(permissionsList, Manifest.permission.READ_EXTERNAL_STORAGE)) {
             permissionsNeeded.add("Read External Storage");
         }
         if (!addPermission(permissionsList, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
@@ -748,18 +763,23 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 perms.put(Manifest.permission.READ_PHONE_STATE, PackageManager.PERMISSION_GRANTED);
                 perms.put(Manifest.permission.ACCESS_FINE_LOCATION, PackageManager.PERMISSION_GRANTED);
                 perms.put(Manifest.permission.ACCESS_COARSE_LOCATION, PackageManager.PERMISSION_GRANTED);
-                perms.put(Manifest.permission.READ_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
+                if (VersionUtils.hasJellyBean()) {
+                    perms.put(Manifest.permission.READ_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
+                }
                 perms.put(Manifest.permission.WRITE_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
                 // Fill with results
                 for (int i = 0; i < permissions.length; i++) {
                     perms.put(permissions[i], grantResults[i]);
                 }
                 // Check for ACCESS_FINE_LOCATION
-                if (perms.get(Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED
-                        && perms.get(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                        && perms.get(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                        && perms.get(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-                        && perms.get(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                boolean isAllGranted = true;
+                for (String key : perms.keySet()) {
+                    if (perms.get(key) != PackageManager.PERMISSION_GRANTED) {
+                        isAllGranted = false;
+                        break;
+                    }
+                }
+                if (isAllGranted) {
                     // All Permissions Granted
                     okayed();
                 } else {

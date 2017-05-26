@@ -9,18 +9,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.core.adnsdk.AdBaseSpec;
-import com.core.adnsdk.AdViewType;
 import com.core.adnsdk.AdObject;
 import com.core.adnsdk.AdPoolListener;
+import com.core.adnsdk.AdProfile;
+import com.core.adnsdk.AdViewType;
+import com.core.adnsdk.AuthList;
+import com.core.adnsdk.AuthListBuilder;
 import com.core.adnsdk.ErrorMessage;
-import com.core.adnsdk.RecyclerAdRenderer;
-import com.core.adnsdk.RecyclerCardAdRenderer;
 import com.core.adnsdk.RecyclerAdapter;
+import com.core.adnsdk.RecyclerCardAdRenderer;
 import com.core.adnsdk.RecyclerCardViewBinder;
 
 import java.util.ArrayList;
@@ -76,19 +76,26 @@ public class ExampleRecyclerView extends Activity {
         RecyclerCardAdRenderer adRenderer = new RecyclerCardAdRenderer(binder);
 
         final Context context = getApplication();
-        final AdViewType adViewType = AdViewType.CARD_VIDEO;
         // create RecyclerAdapter, and given original adapter of user
         // given a placement tag for different advertisement section
+
+        //start ad Profile builder
+        final AdViewType adViewType = AdViewType.CARD_VIDEO;
+        AuthList mAuthList = new AuthListBuilder()
+                .add("5630c874cef2370b13942b8f", "placement(recycler)")
+                .build();
+        AdProfile mAdProfile = new AdProfile.AdProfileBuilder()
+                .setAuthList(mAuthList)
+                .setTestMode(true)
+                .build();
         mRecyclerAdapter = new RecyclerAdapter(
-                  this
+                this
                 , recyclerView
                 , originalAdapter
-                , "5630c874cef2370b13942b8f"
-                , "placement(recycler)"
+                , mAdProfile
                 , adViewType);
         // if user don't provide renderer, it would use default renderer.
         mRecyclerAdapter.setAdRenderer(adRenderer, AdViewType.CARD_VIDEO); // for Video type
-        mRecyclerAdapter.setTestMode(true); // for testing
         mRecyclerAdapter.setFrequency(1, 3);
         /**
          * Users are also capable of using {@link com.core.adnsdk.AdPoolListenerAdapter}, default adapter design pattern of AdPoolListener, to receive notification.

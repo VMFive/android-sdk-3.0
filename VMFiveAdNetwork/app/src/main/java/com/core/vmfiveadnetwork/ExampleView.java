@@ -6,12 +6,13 @@ import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.core.adnsdk.AdCardType;
-import com.core.adnsdk.AdCardView;
 import com.core.adnsdk.AdListener;
 import com.core.adnsdk.AdObject;
+import com.core.adnsdk.AdProfile;
 import com.core.adnsdk.AdView;
 import com.core.adnsdk.AdViewType;
+import com.core.adnsdk.AuthList;
+import com.core.adnsdk.AuthListBuilder;
 import com.core.adnsdk.CardAdRenderer;
 import com.core.adnsdk.CardViewBinder;
 import com.core.adnsdk.ErrorMessage;
@@ -43,11 +44,18 @@ public class ExampleView extends FragmentActivity {
         // set layout builder to adRenderer
         CardAdRenderer adRenderer = new CardAdRenderer(binder);
 
+        //start ad Profile builder
         final AdViewType adViewType = AdViewType.CARD_VIDEO;
+        AuthList mAuthList = new AuthListBuilder()
+                .add("5630c874cef2370b13942b8f", "placement(card_video)")
+                .build();
+        AdProfile mAdProfile = new AdProfile.AdProfileBuilder()
+                .setAuthList(mAuthList)
+                .setTestMode(true)
+                .build();
         mAdView = new AdView(
-                  this
-                , "5630c874cef2370b13942b8f"
-                , "placement(card_video)"
+                this
+                , mAdProfile
                 , adViewType);
         mAdView.setViewParent(adLayout);
         // if user don't provide renderer, it would use default renderer.
@@ -97,7 +105,6 @@ public class ExampleView extends FragmentActivity {
             }
         });
         //adLayout.addView(mAdView);
-        mAdView.setTestMode(true);
         mAdView.loadAd();
     }
 

@@ -12,9 +12,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.core.adnsdk.AdInterstitial;
 import com.core.adnsdk.AdInterstitialType;
 import com.core.adnsdk.AdInterstitialView;
+import com.core.adnsdk.AdProfile;
+import com.core.adnsdk.AuthList;
+import com.core.adnsdk.AuthListBuilder;
 
 public class ExampleInterstitialView extends FragmentActivity {
     private static final String TAG = "ExampleInterstitialView";
@@ -101,7 +103,7 @@ public class ExampleInterstitialView extends FragmentActivity {
         }
 
         @Override
-        public boolean onInterceptTouchEvent(MotionEvent ev){
+        public boolean onInterceptTouchEvent(MotionEvent ev) {
             boolean intercepted = super.onInterceptTouchEvent(swapXY(ev));
             swapXY(ev); // return touch coordinates to original reference frame for any child views
             return intercepted;
@@ -132,7 +134,7 @@ public class ExampleInterstitialView extends FragmentActivity {
         }
 
         @Override
-        public void destroyItem(ViewGroup container, int position, Object object)   {
+        public void destroyItem(ViewGroup container, int position, Object object) {
             if (position == 2) {
                 AdInterstitialView adInterstitialView = (AdInterstitialView) object;
                 adInterstitialView.onDestroy();
@@ -151,13 +153,20 @@ public class ExampleInterstitialView extends FragmentActivity {
                 view = new View(ExampleInterstitialView.this);
                 view.setBackgroundColor(Color.YELLOW);
             } else { // position == 2
+                AdInterstitialView adInterstitialView;
+                //start ad Profile builder
                 final AdInterstitialType adInterstitialType = AdInterstitialType.INTERSTITIAL_VIDEO;
-                AdInterstitialView adInterstitialView  = new AdInterstitialView(
-                          mActivity
-                        , "5630c874cef2370b13942b8f"
-                        , "placement(interstitial_view)"
+                AuthList mAuthList = new AuthListBuilder()
+                        .add("5630c874cef2370b13942b8f", "placement(interstitial_view)")
+                        .build();
+                AdProfile mAdProfile = new AdProfile.AdProfileBuilder()
+                        .setAuthList(mAuthList)
+                        .setTestMode(true)
+                        .build();
+                adInterstitialView = new AdInterstitialView(
+                        mActivity
+                        , mAdProfile
                         , adInterstitialType);
-                adInterstitialView.setTestMode(true);
                 adInterstitialView.loadAd();
                 mAdInterstitialView = adInterstitialView;
                 view = adInterstitialView;
