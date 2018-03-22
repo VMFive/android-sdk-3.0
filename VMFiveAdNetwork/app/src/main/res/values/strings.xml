@@ -10,4 +10,7 @@
     <string name="native_title">Native</string>
     <string name="reward_title">Reward</string>
     <string name="other_title">Other</string>
+    <string name="native_main_image">native_main_image</string>
+    <string name="learn_more">learn_more</string>
+    <string name="native_privacy_information_icon_image">native_privacy_information_icon_image</string>
 </resources>

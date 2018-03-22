@@ -1,0 +1,43 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/native_outer_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <ImageView android:id="@+id/native_main_image"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@null"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/native_text"
+        android:layout_alignParentLeft="true"
+        android:contentDescription="@string/native_main_image"
+        android:scaleType="centerCrop"/>
+
+    <TextView android:id="@+id/native_cta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_horizontal"
+        android:layout_alignBottom="@id/native_main_image"
+        android:layout_alignRight="@id/native_main_image"
+        android:background="@drawable/native_video_cta_border"
+        android:text="@string/learn_more"
+        android:textColor="#FFFFFF"/>
+
+    <ImageView
+        android:id="@+id/native_privacy_information_icon_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/native_privacy_information_icon_image"/>
+
+</RelativeLayout>

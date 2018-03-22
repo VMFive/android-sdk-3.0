@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
-        applicationId "com.core.vmfiveadnetwork"
-        minSdkVersion 15
+        applicationId "com.vm5.android"
+        minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -21,6 +21,8 @@ android {
         maven {
             url 'https://raw.githubusercontent.com/applauseadn/android-sdk-3.0/master/VMFiveADNSDK/'
         }
+        maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
+        maven { url 'https://maven.google.com' } // necessary for Android API 26
     }
 }
 
@@ -29,12 +31,18 @@ configurations.all {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'com.android.support:design:23.3.0'
-    compile 'com.google.android.gms:play-services-ads:8.4.0'
-    compile 'com.android.support:recyclerview-v7:23.3.0'
-    debugCompile 'com.vmfive:VMFiveADNSDK:+:debug@aar'
-    releaseCompile 'com.vmfive:VMFiveADNSDK:+:release@aar'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+
+    implementation 'com.google.android.gms:play-services-ads:8.4.0'
+
+    debugImplementation 'com.vmfive:VMFiveADNSDK:+:debug@aar'
+    releaseImplementation 'com.vmfive:VMFiveADNSDK:+:release@aar'
+
+    implementation('com.mopub:mopub-sdk:4.20.0@aar') {
+        transitive = true
+    }
 }

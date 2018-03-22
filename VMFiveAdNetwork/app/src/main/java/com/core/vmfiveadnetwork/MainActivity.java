@@ -693,6 +693,16 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                         }
                     });
 
+            rootView.findViewById(R.id.native_recyclerview_mopub)
+                    .setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(getActivity(), ExampleRecyclerViewMoPub.class);
+                            intent.putExtra("type", "MoPub");
+                            startActivity(intent);
+                        }
+                    });
+
             return rootView;
         }
     }
