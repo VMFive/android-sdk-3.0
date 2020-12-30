@@ -1,48 +1,72 @@
+buildscript {
+    repositories {
+        jcenter()
+}
+
+    dependencies {
+    }
+}
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 28
+    buildToolsVersion '29.0.3'
 
     defaultConfig {
         applicationId "com.vm5.android"
         minSdkVersion 16
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 28
+        versionCode 2
+        versionName "AdnSdkDemo"
+        multiDexEnabled true
     }
+
     buildTypes {
+        debug {
+            versionNameSuffix '_dev'
+            buildConfigField "boolean", "ADN_MULTIKEY", "true"
+        }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            buildConfigField "boolean", "ADN_MULTIKEY", "true"
         }
     }
+
     repositories {
         maven {
             url 'https://raw.githubusercontent.com/applauseadn/android-sdk-3.0/master/VMFiveADNSDK/'
         }
         maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
         maven { url 'https://maven.google.com' } // necessary for Android API 26
-    }
-}
 
-configurations.all {
-    resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
+        maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
+
+    }
+
+    compileOptions {
+        targetCompatibility = 1.8
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support:design:26.1.0'
-    implementation 'com.android.support:recyclerview-v7:26.1.0'
 
-    implementation 'com.google.android.gms:play-services-ads:8.4.0'
+    implementation 'com.android.support:support-compat:28.0.0'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+
+    implementation ('com.google.android.gms:play-services-ads:16.0.0') {
+        //transitive = true
+        exclude module: 'customtabs'
+    }
 
     debugImplementation 'com.vmfive:VMFiveADNSDK:+:debug@aar'
     releaseImplementation 'com.vmfive:VMFiveADNSDK:+:release@aar'
 
-    implementation('com.mopub:mopub-sdk:4.20.0@aar') {
+    implementation('com.mopub:mopub-sdk:5.8.0@aar') {
         transitive = true
     }
 }

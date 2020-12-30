@@ -88,7 +88,8 @@ public class VM5MediaViewBinder {
     final int callToActionId;
     final int iconImageId;
     final int privacyInformationIconImageId;
-    @NonNull final Map<String, Integer> extras;
+    @NonNull
+    final Map<String, Integer> extras;
 
     private VM5MediaViewBinder(@NonNull final Builder builder) {
         this.layoutId = builder.layoutId;

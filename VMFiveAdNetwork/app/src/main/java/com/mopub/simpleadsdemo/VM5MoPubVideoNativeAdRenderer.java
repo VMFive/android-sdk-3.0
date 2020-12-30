@@ -17,6 +17,7 @@ import com.mopub.nativeads.NativeImageHelper;
 import com.mopub.nativeads.NativeRendererHelper;
 import com.mopub.nativeads.VideoNativeAd;
 
+import java.lang.ref.WeakReference;
 import java.util.WeakHashMap;
 
 /**
@@ -88,6 +89,11 @@ public class VM5MoPubVideoNativeAdRenderer implements MoPubAdRenderer<VideoNativ
 
         MediaLayout mediaLayout = (MediaLayout) view.findViewById(mMediaViewBinder.mediaLayoutId);
         videoNativeAd.render(mediaLayout);
+
+        mediaViewHolder.setVideoNativeAdWeakReference(new WeakReference<>(videoNativeAd));
+//        VM5MoPubCentralManager.getInstance().registerLifecycleListener(mediaViewHolder);
+        mediaViewHolder.bindCtaEventsOnViews();
+//        mediaViewHolder.onResume();
     }
 
     @Override

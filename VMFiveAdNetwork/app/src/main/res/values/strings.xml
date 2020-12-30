@@ -1,5 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">VMFiveAdNetwork</string>
+
+    <string name="app_name">AdnSdkDemo</string>
     <string name="action_settings">Settings</string>
 
     <string name="dummy_section_text">Section %1d is just a dummy section.</string>
@@ -7,6 +9,7 @@
     <string name="banner_title">Banner</string>
     <string name="card_title">Card</string>
     <string name="interstitial_title">Interstitial</string>
+    <string name="splash_title">Splash</string>
     <string name="native_title">Native</string>
     <string name="reward_title">Reward</string>
     <string name="other_title">Other</string>

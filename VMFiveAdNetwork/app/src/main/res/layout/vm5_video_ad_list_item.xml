@@ -25,7 +25,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_below="@+id/native_text"
         android:layout_centerHorizontal="true" />
 
     <RelativeLayout

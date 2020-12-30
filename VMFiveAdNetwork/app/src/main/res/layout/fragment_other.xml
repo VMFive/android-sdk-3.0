@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
-        android:text="AdMob"/>
+        android:text="AdMob"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/native_recyclerview_mopub"

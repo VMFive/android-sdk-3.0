@@ -33,7 +33,7 @@
         android:layout_alignParentBottom="true"
         android:gravity="center_horizontal"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-4125394451256992/1459988862"/>
+        ads:adUnitId="ca-app-pub-4125394451256992/1741888066"/>
 
     <FrameLayout
         android:id="@+id/ad_container"
