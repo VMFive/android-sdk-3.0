@@ -26,12 +26,6 @@ android {
             versionNameSuffix '_dev'
             buildConfigField "boolean", "ADN_MULTIKEY", "true"
         }
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
-            buildConfigField "boolean", "ADN_MULTIKEY", "true"
-        }
     }
 
     repositories {
