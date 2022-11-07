@@ -3,8 +3,8 @@
   <groupId>com.vmfive</groupId>
   <artifactId>VMFiveADNSDK</artifactId>
   <versioning>
-    <latest>4.0.0</latest>
-    <release>4.0.0</release>
+    <latest>4.0.1</latest>
+    <release>4.0.1</release>
     <versions>
       <version>3.0.0</version>
       <version>3.0.1</version>
@@ -24,7 +24,8 @@
       <version>3.1.9</version>
       <version>3.2.0</version>
       <version>4.0.0</version>
+      <version>4.0.1</version>
     </versions>
-    <lastUpdated>20221107065748</lastUpdated>
+    <lastUpdated>20221107092258</lastUpdated>
   </versioning>
 </metadata>
