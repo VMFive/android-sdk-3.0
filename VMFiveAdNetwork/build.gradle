@@ -3,7 +3,8 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url 'https://maven.google.com' } // necessary for Android API 26
+        maven { url 'https://maven.google.com' }
+        google() // necessary for Android API 26
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.1'

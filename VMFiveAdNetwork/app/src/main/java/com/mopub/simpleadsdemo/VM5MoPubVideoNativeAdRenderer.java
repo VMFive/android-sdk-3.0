@@ -1,13 +1,13 @@
 package com.mopub.simpleadsdemo;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.core.adnsdk.ComscoreTrackingMediator;
+//import com.core.adnsdk.ComscoreTrackingMediator;
 import com.mopub.common.Preconditions;
 import com.mopub.common.VisibleForTesting;
 import com.mopub.nativeads.BaseNativeAd;
@@ -57,7 +57,7 @@ public class VM5MoPubVideoNativeAdRenderer implements MoPubAdRenderer<VideoNativ
         //register View and key to VM5ComScoreTrackingMediator
         Object object = videoNativeAd.getExtra("uniqueID");
         if (object != null && object instanceof String) {
-            ComscoreTrackingMediator.getInstance().registerView((String)object, view);
+//            ComscoreTrackingMediator.getInstance().registerView((String)object, view);
         }
         VM5MediaViewHolder mediaViewHolder = mMediaViewHolderMap.get(view);
         if (mediaViewHolder == null) {
